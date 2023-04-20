@@ -10,6 +10,8 @@ set tabstop=4
 set cursorline
 set smartindent
 set termguicolors
+set splitbelow
+set termwinsize=8x0
 
 let g:tokyonight_style = 'night' " available: night, storm
 let g:tokyonight_enable_italic = 1
@@ -21,6 +23,14 @@ inoremap ( ()<esc>i
 inoremap " ""<esc>i
 inoremap ' ''<esc>i
 inoremap [ []<esc>i
+
+nmap <leader>t :term<CR>
+nmap <leader>e :call ShowExplorer()<CR>
+
+function ShowExplorer()
+	execute "vs"
+	execute "Ex"
+endfunction
 
 " coc.nvim
 " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
