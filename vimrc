@@ -25,12 +25,7 @@ inoremap ' ''<esc>i
 inoremap [ []<esc>i
 
 nmap <leader>t :term<CR>
-nmap <leader>e :call ShowExplorer()<CR>
-
-function ShowExplorer()
-	execute "vs"
-	execute "Ex"
-endfunction
+nmap <leader>e :CocCommand explorer<CR>
 
 " coc.nvim
 " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
