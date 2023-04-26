@@ -12,6 +12,7 @@ set smartindent
 set termguicolors
 set splitbelow
 set termwinsize=8x0
+autocmd FileType dart set tabstop=2 
 
 let g:tokyonight_style = 'night' " available: night, storm
 let g:tokyonight_enable_italic = 1
