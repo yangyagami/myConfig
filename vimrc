@@ -12,6 +12,8 @@ set smartindent
 set termguicolors
 set splitbelow
 set termwinsize=8x0
+set number
+set relativenumber
 
 let g:tokyonight_style = 'night' " available: night, storm
 let g:tokyonight_enable_italic = 1
@@ -26,6 +28,8 @@ inoremap [ []<esc>i
 
 nmap <leader>t :term<CR>
 nmap <leader>e :CocCommand explorer<CR>
+nmap <leader>c :CocCommand<CR>
+nmap <leader>cc :e $HOME/.vimrc<CR>
 
 " coc.nvim
 " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
