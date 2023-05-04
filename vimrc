@@ -12,7 +12,6 @@ set smartindent
 set termguicolors
 set splitbelow
 set termwinsize=8x0
-<<<<<<< HEAD
 set number
 set relativenumber
 autocmd FileType dart set tabstop=2 
