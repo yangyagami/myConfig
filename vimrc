@@ -29,8 +29,8 @@ inoremap [ []<esc>i
 
 nmap <leader>t :term<CR>
 nmap <leader>e :CocCommand explorer<CR>
-nmap <leader>c :CocCommand<CR>
-nmap <leader>cc :e $HOME/.vimrc<CR>
+nmap <leader>p :CocCommand<CR>
+nmap <leader>c :e $HOME/.vimrc<CR>
 
 " coc.nvim
 " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
