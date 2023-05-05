@@ -1,2 +1,0 @@
-syn match cCustomFunc '\w\+(\@='
-
