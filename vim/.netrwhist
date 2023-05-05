@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/jiale/Company/BLW/Workspace/FoShan/SleUiLib/include'
+let g:netrw_dirhist_6='/home/jiale/Company/BLW/Workspace/FoShan/SleUiLib'
+let g:netrw_dirhist_5='/home/jiale/Company/BLW/Workspace/FoShan/SleUiLib/mvc'
+let g:netrw_dirhist_4='/home/jiale/Company/BLW/Workspace/FoShan/SleUiLib'
+let g:netrw_dirhist_3='/home/jiale/Company/BLW/Workspace/FoShan'
+let g:netrw_dirhist_2='/home/jiale/Company/BLW/Workspace'
+let g:netrw_dirhist_1='/home/jiale/Company/BLW/Workspace/project'
+let g:netrw_dirhist_0='/home/jiale/Company/BLW/Workspace/project/chongjt'
+let g:netrw_dirhist_9='/home/jiale/Company/BLW/Workspace/project/chongjt/Project'
+let g:netrw_dirhist_8='/home/jiale/Company/BLW/Workspace/project/chongjt/Project/ChongQingJt'
