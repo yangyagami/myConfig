@@ -3,6 +3,8 @@ call plug#begin()
 	Plug 'ghifarit53/tokyonight-vim'
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
+	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 syntax on
@@ -18,6 +20,8 @@ autocmd FileType dart set tabstop=2
 
 let g:tokyonight_style = 'night' " available: night, storm
 let g:tokyonight_enable_italic = 1
+let g:airline_experimental = 1
+let g:airline_theme='dark'
 
 colorscheme tokyonight
 
@@ -32,6 +36,7 @@ nmap <leader>e :CocCommand explorer<CR>
 nmap <leader>p :CocCommand<CR>
 nmap <leader>c :e $HOME/.vimrc<CR>
 nmap <leader>d :CocDiagnostics<CR>
+
 
 " coc.nvim
 " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
