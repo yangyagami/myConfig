@@ -1,13 +1,22 @@
 call plug#begin()
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
-	Plug 'ghifarit53/tokyonight-vim'
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+	Plug 'ghifarit53/tokyonight-vim'
 	Plug 'junegunn/fzf.vim'
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
+	Plug 'lambdalisue/fern.vim'
+	Plug 'dart-lang/dart-vim-plugin'
+	Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+	Plug 'lambdalisue/nerdfont.vim'
+	Plug 'lambdalisue/glyph-palette.vim'
 call plug#end()
 
 syntax on
+let &t_Cs = "\e[4:3m"
+let &t_Ce = "\e[4:0m"
+set guifont=JetBrainsMono\ Nerd\ Font\ Bold\ 13
+set go=c
 set tabstop=4
 set cursorline
 set smartindent
@@ -23,6 +32,13 @@ let g:tokyonight_enable_italic = 1
 let g:airline_experimental = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='dark'
+let g:fern#renderer = "nerdfont"
+
+augroup my-glyph-palette
+  autocmd! *
+  autocmd FileType fern call glyph_palette#apply()
+  autocmd FileType nerdtree,startify call glyph_palette#apply()
+augroup END
 
 colorscheme tokyonight
 
@@ -32,11 +48,11 @@ inoremap " ""<esc>i
 inoremap ' ''<esc>i
 inoremap [ []<esc>i
 
-nmap <leader>t :term<CR>
-nmap <leader>e :CocCommand explorer<CR>
-nmap <leader>p :CocCommand<CR>
-nmap <leader>c :e $HOME/.vimrc<CR>
-nmap <leader>d :CocDiagnostics<CR>
+nnoremap <leader>t :term<CR>
+nnoremap <leader>e :Fern . -drawer<CR>
+nnoremap <leader>p :CocCommand<CR>
+nnoremap <leader>c :e $HOME/.vimrc<CR>
+nnoremap <leader>d :CocDiagnostics<CR>
 
 
 " coc.nvim
