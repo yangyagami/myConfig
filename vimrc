@@ -31,7 +31,7 @@ let g:tokyonight_style = 'night' " available: night, storm
 let g:tokyonight_enable_italic = 1
 let g:airline_experimental = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='dark'
+let g:airline_theme='tokyonight'
 let g:fern#renderer = "nerdfont"
 
 augroup my-glyph-palette
