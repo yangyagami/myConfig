@@ -1,0 +1,16 @@
+{
+	"diagnostic.floatConfig": {
+		"border": true,
+		"rounded": true,
+		"highlight": "Normal"
+	},
+	"diagnostic.enable": true,
+	"semanticTokens.enable": true,
+	"flutter.autoOpenDevLog": true,
+	"diagnostic.virtualText": true,
+	"flutter.provider.hot-reload": true,
+	"flutter.provider.enableSnippet": true,
+	"flutter.openDevLogSplitCommand": "botright 10split",
+	"flutter.UIPath": true
+}
+
