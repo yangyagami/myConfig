@@ -4,6 +4,17 @@
 		"rounded": true,
 		"highlight": "Normal"
 	},
+	"floatFactory.floatConfig": {
+		"border": true,
+		"rounded": true,
+		"highlight": "Normal"
+	},
+	"suggest.floatConfig": {
+		"border": true,
+		"rounded": true,
+		"highlight": "Normal"
+	},
+	"dialog.rounded": true,
 	"diagnostic.enable": true,
 	"semanticTokens.enable": true,
 	"flutter.autoOpenDevLog": true,
@@ -11,6 +22,10 @@
 	"flutter.provider.hot-reload": true,
 	"flutter.provider.enableSnippet": true,
 	"flutter.openDevLogSplitCommand": "botright 10split",
-	"flutter.UIPath": true
+	"flutter.UIPath": true,
+	"signature.floatConfig": {
+		"border": true,
+		"rounded": true
+	}
 }
 
