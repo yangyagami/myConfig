@@ -17,6 +17,8 @@
 	"dialog.rounded": true,
 	"diagnostic.enable": true,
 	"semanticTokens.enable": true,
+	"semanticTokens.highlightPriority": 2048,
+	"suggest.virtualText": true,
 	"flutter.autoOpenDevLog": true,
 	"diagnostic.virtualText": true,
 	"flutter.provider.hot-reload": true,
