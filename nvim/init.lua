@@ -1,8 +1,0 @@
-require "plugins"
-require "config/cmd"
-require "config/settings"
-require "config/nvimtree"
-require "config/keybinds"
-require "config/lsp"
-require "config/cmp"
-require "plugins/loghighlight"
