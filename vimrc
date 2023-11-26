@@ -8,6 +8,8 @@ call plug#end()
 
 " settings
 syntax on
+set number
+set relativenumber
 set termguicolors
 set wildmenu
 set tabstop=4
