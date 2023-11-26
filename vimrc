@@ -1,22 +1,18 @@
-" help functions
-function! CheckBackspace() abort 
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-	
-function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
-endfunction
+"plugins
+call plug#begin('~/.vim/plugged')
+" Plugin outside ~/.vim/plugged with post-update hook
+ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+ Plug 'lambdalisue/fern.vim'
+ Plug 'neoclide/coc.nvim', {'branch': 'release'}
+call plug#end()
 
 " settings
 syntax on
 set termguicolors
+set wildmenu
 set tabstop=4
 set shiftwidth=4
+set expandtab
 " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
 " utf-8 byte sequence
 set encoding=utf-8
@@ -35,15 +31,22 @@ set signcolumn=yes
 " set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 color habamax
 
-"plugins
-call plug#begin('~/.vim/plugged')
-" Plugin outside ~/.vim/plugged with post-update hook
- Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
- Plug 'lambdalisue/fern.vim'
- Plug 'neoclide/coc.nvim', {'branch': 'release'}
-call plug#end()
+" help functions
+function! CheckBackspace() abort 
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+	
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
 
 " keybindings
+noremap <C-t> :term<CR><C-w>J<C-w>N:resize 10<CR>i
 vnoremap <leader>gd :call GenerateCppDef()<CR>
 nnoremap <leader>ff :FZF<CR>
 nnoremap <leader>e :Fern . -drawer -toggle<CR>
@@ -141,7 +144,6 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-
 
 " autocmd
 augroup mygroup
