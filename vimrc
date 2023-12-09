@@ -51,6 +51,8 @@ endfunction
 noremap <C-t> :term<CR><C-w>J<C-w>N:resize 10<CR>i
 vnoremap <leader>gd :call GenerateCppDef()<CR>
 nnoremap <leader>ff :FZF<CR>
+nnoremap <leader>b :ls<CR>:b<SPACE>
+nnoremap <leader>o :b#<CR>
 nnoremap <leader>e :Fern . -drawer -toggle<CR>
 " Use tab for trigger completion with characters ahead and navigate
 " NOTE: There's always complete item selected by default, you may want to enable
