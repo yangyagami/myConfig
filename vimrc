@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
  Plug 'lambdalisue/fern.vim'
  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+ Plug 'yangyagami/cppDefGenerator'
 call plug#end()
 
 " settings
