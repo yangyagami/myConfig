@@ -16,7 +16,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set encoding=utf-8
-color retrobox
+color wildcharm
 
 " keybindings
 vnoremap <leader>gd :call GenerateCppDef()<CR>
