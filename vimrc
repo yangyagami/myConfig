@@ -20,6 +20,9 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set encoding=utf-8
+set ruler
+set backspace=indent,eol,start
+set colorcolumn=80
 color wildcharm
 
 " tags settings
@@ -42,3 +45,7 @@ nnoremap <leader>b :ls<CR>:b<SPACE>
 nnoremap <leader>o :b#<CR>
 nnoremap <leader>e :Fern . -drawer -toggle<CR>
 nnoremap <leader>t :bo term<CR><C-w>N:resize 10<CR>i
+
+" autocommands
+autocmd FileType python set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType cpp set tabstop=2 softtabstop=2 shiftwidth=2 expandtab colorcolumn=80
