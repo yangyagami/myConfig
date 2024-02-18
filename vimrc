@@ -49,3 +49,4 @@ nnoremap <leader>t :bo term<CR><C-w>N:resize 10<CR>i
 " autocommands
 autocmd FileType python set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 autocmd FileType cpp set tabstop=2 softtabstop=2 shiftwidth=2 expandtab colorcolumn=80
+autocmd FileType h set tabstop=2 softtabstop=2 shiftwidth=2 expandtab colorcolumn=80
