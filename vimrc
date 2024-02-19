@@ -7,6 +7,7 @@ call plug#begin('~/.vim/plugged')
  Plug 'yangyagami/cppDefGenerator'
  Plug 'ludovicchabant/vim-gutentags'
  Plug 'skywind3000/gutentags_plus'
+ Plug 'bfrg/vim-cpp-modern'
 call plug#end()
 
 " common settings
