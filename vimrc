@@ -24,7 +24,7 @@ set encoding=utf-8
 set ruler
 set backspace=indent,eol,start
 set colorcolumn=80
-color wildcharm
+color industry
 
 " tags settings
 " enable gtags module
