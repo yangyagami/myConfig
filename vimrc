@@ -17,13 +17,12 @@ set number
 set relativenumber
 set termguicolors
 set wildmenu
-set tabstop=4
-set shiftwidth=4
-set expandtab
+set tabstop=8
+set shiftwidth=8
+set softtabstop=8
 set encoding=utf-8
 set ruler
 set backspace=indent,eol,start
-set colorcolumn=80
 color habamax
 
 " tags settings
@@ -48,6 +47,7 @@ nnoremap <leader>e :Fern . -drawer -toggle<CR>
 nnoremap <leader>t :bo term<CR><C-w>N:resize 10<CR>i
 
 " autocommands
-autocmd FileType python set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-autocmd FileType cpp set tabstop=2 softtabstop=2 shiftwidth=2 expandtab colorcolumn=80
-autocmd FileType h set tabstop=2 softtabstop=2 shiftwidth=2 expandtab colorcolumn=80
+autocmd FileType python set tabstop=4 softtabstop=4 shiftwidth=4
+autocmd FileType cpp set colorcolumn=80
+autocmd FileType h set colorcolumn=80
+autocmd FileType c set tabstop=8 softtabstop=8 shiftwidth=8 colorcolumn=80
