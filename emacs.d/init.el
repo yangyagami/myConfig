@@ -30,6 +30,7 @@
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 (scroll-bar-mode 0)
+(display-time-mode 1)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
