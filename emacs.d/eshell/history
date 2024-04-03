@@ -68,3 +68,41 @@ git add .
 git commit -m "Emacs config add time display"
 git push
 ls
+ls
+cd 
+ls
+cd wo
+cd Workspace/
+ls
+cd myConfig
+ls
+git add .
+git commit -m "Edit emacs config"
+git push
+git status
+ls
+ls
+clear
+ls
+clean
+ls
+ls
+ls
+touch camera_capture.h
+touch main.c
+touch Makefile
+ls
+ls
+make
+make
+ls
+ls
+ls
+./test
+make
+./test
+ls
+ls
+make
+./test
+ls

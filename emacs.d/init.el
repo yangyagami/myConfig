@@ -32,13 +32,18 @@
 (scroll-bar-mode 0)
 (display-time-mode 1)
 (setq-default c-basic-offset 8)
+;; use-package with package.el:
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(doom-modeline doom-themes))
+ '(package-selected-packages '(dashboard doom-modeline doom-themes))
  '(tool-bar-mode nil))
 
 (custom-set-faces
@@ -51,3 +56,4 @@
 (use-package doom-modeline
   :ensure t
   :init (doom-modeline-mode 1))
+(put 'upcase-region 'disabled nil)
