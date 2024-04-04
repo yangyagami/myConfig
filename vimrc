@@ -51,3 +51,12 @@ autocmd FileType python set tabstop=4 softtabstop=4 shiftwidth=4
 autocmd FileType cpp set colorcolumn=80
 autocmd FileType h set colorcolumn=80
 autocmd FileType c set tabstop=8 softtabstop=8 shiftwidth=8 colorcolumn=80
+
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
+" reset the cursor on start (for older versions of vim, usually not required)
+augroup myCmds
+au!
+autocmd VimEnter * silent !echo -ne "\e[2 q"
+augroup END
