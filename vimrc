@@ -8,6 +8,9 @@ call plug#begin('~/.vim/plugged')
  Plug 'ludovicchabant/vim-gutentags'
  Plug 'skywind3000/gutentags_plus'
  Plug 'bfrg/vim-cpp-modern'
+ Plug 'romgrk/doom-one.vim'
+ Plug 'vim-airline/vim-airline'
+ Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 " common settings
@@ -23,7 +26,28 @@ set softtabstop=8
 set encoding=utf-8
 set ruler
 set backspace=indent,eol,start
-color habamax
+color doom-one
+
+" Airline settings
+let g:airline_powerline_fonts = 1
+let g:airline_theme = "molokai"
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" unicode symbols
+
+" old vim-powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ' row:'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.colnr = ' col:'
+let g:airline_section_z_term = '%l/%L'
 
 " tags settings
 " enable gtags module
@@ -56,7 +80,7 @@ let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
 " reset the cursor on start (for older versions of vim, usually not required)
-augroup myCmds
-au!
-autocmd VimEnter * silent !echo -ne "\e[2 q"
-augroup END
+" augroup myCmds
+" au!
+" autocmd VimEnter * silent !echo -ne "\e[2 q"
+" augroup END
