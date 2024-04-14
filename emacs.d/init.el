@@ -116,7 +116,7 @@
 )
 
 ;; 设置垃圾回收大小为100mb
-(setq gc-cons-threshold (* 100 1024 1024)
+(setq gc-cons-threshold (* 256 1024 1024)
       read-process-output-max (* 1024 1024)
       treemacs-space-between-root-nodes nil
       company-idle-delay 0.0
