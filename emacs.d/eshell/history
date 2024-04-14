@@ -1,6 +1,0 @@
-ls
-svn st --ignore-externals
-svn add test/src/test.ui
-svn commit test/src/test.ui
-svn commit test/src/test.ui -m "Add test ui"
-exit

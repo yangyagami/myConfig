@@ -76,7 +76,7 @@
 (add-hook 'c++-mode-common-hook
           (lambda ()
             (setq c-basic-offset 2)
-            (setq fill-column 80)))
+            (setq fill-column 81)))
 ;; lsp
 (require 'lsp-mode)
 (add-hook 'c++-mode-hook #'lsp)
