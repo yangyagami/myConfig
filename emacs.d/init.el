@@ -3,39 +3,8 @@
 
 (require 'init-elpa)
 (require 'init-theme)
-
-;; 平滑滚动
-(pixel-scroll-precision-mode 1)
-
-;; whichkey
-(require 'which-key)
-(which-key-mode 1)
-
-;; 默认打开fancy-compilation
-(fancy-compilation-mode 1)
-
-;; tabbar
-(tab-bar-mode 1)
-
-;; 在底部打开term
-(defun bterm ()
-  (interactive)
-  (let ((buf (generate-new-buffer "*bterm*")))
-    (split-window-below 30)
-    (other-window 1)
-    (switch-to-buffer buf)
-    (term-mode)
-    (term buf)))
-
-;; modeline显示时间
-(setq display-time-format "%Y-%m-%d %H:%M")
-(display-time-mode 1)
-
-;; 显示行号
-(global-display-line-numbers-mode)
-
-;; 显示列数
-(column-number-mode 1)
+(require 'init-basic)
+(require 'init-org)
 
 ;; C语言下的设置
 (add-hook 'c-mode-hook
@@ -90,7 +59,7 @@
 )
 
 ;; 设置垃圾回收大小为100mb
-(setq gc-cons-threshold (* 256 1024 1024)
+(setq gc-cons-threshold (* 512 1024 1024)
       read-process-output-max (* 1024 1024)
       treemacs-space-between-root-nodes nil
       company-idle-delay 0.0
@@ -105,6 +74,7 @@
  '(column-number-mode t)
  '(display-time-mode t)
  '(global-display-line-numbers-mode t)
+ '(org-agenda-files '("/tmp/today.org"))
  '(package-selected-packages
    '(which-key flycheck lsp-ui company lsp-mode qml-mode fancy-compilation all-the-icons-gnus all-the-icons-nerd-fonts all-the-icons-dired melpa-upstream-visit magit doom-modeline doom-themes)))
 (custom-set-faces
