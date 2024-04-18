@@ -3,3 +3,6 @@ auto-save-list
 eshell
 games
 *~
+/emacs.d/.lsp-session-v1
+/emacs.d/tramp
+/emacs.d/todo/
