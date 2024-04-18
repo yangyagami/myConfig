@@ -1,35 +1,8 @@
-;; 初始化melpa
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+;; 添加.emacs.d/lisp
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
 
-;; doom themes
-(use-package doom-themes
-  :ensure t
-  :config
-  ;; Global settings (defaults)
-  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-        doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  (load-theme 'doom-one t)
-
-  ;; Enable flashing mode-line on errors
-  (doom-themes-visual-bell-config)
-  ;; Enable custom neotree theme (all-the-icons must be installed!)
-  (doom-themes-neotree-config)
-  ;; or for treemacs users
-  (setq doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
-  (doom-themes-treemacs-config)
-  ;; Corrects (and improves) org-mode's native fontification.
-  (doom-themes-org-config))
-
-;; doom modeline
-(use-package doom-modeline
-  :ensure t
-  :init (doom-modeline-mode 1))
-
-;; icons
-(use-package all-the-icons
-  :if (display-graphic-p))
-(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+(require 'init-elpa)
+(require 'init-theme)
 
 ;; 平滑滚动
 (pixel-scroll-precision-mode 1)
@@ -65,7 +38,7 @@
 (column-number-mode 1)
 
 ;; C语言下的设置
-(add-hook 'c-mode-common-hook
+(add-hook 'c-mode-hook
           (lambda ()
             (setq c-basic-offset 8)
             (setq display-fill-column-indicator-column 81)
@@ -73,13 +46,14 @@
 
 ;; C++ 设置
 ;; 格式化
-(add-hook 'c++-mode-common-hook
+(add-hook 'c++-mode-hook
           (lambda ()
             (setq c-basic-offset 2)
-            (setq fill-column 81)))
+            (setq fill-column 81)
+	    (display-fill-column-indicator-mode 1)))
 ;; lsp
-(require 'lsp-mode)
-(add-hook 'c++-mode-hook #'lsp)
+;; (require 'lsp-mode)
+;; (add-hook 'c++-mode-hook #'lsp)
 
 ;; qml 设置
 (add-hook 'qml-mode-hook
