@@ -19,6 +19,7 @@
           (lambda ()
             (setq c-basic-offset 2)
             (setq fill-column 81)
+            (setq indent-tabs-mode nil)
 	    (display-fill-column-indicator-mode 1)))
 ;; lsp
 ;; (require 'lsp-mode)
