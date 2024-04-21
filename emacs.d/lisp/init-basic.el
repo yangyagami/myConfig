@@ -8,14 +8,14 @@
 ;; 默认打开fancy-compilation
 (fancy-compilation-mode 1)
 
-;; 默认打开whitespace-mode
-(global-whitespace-mode 1)
-
 ;; 关闭tool bar
 (tool-bar-mode 0)
 
 ;; tabbar
 (tab-bar-mode 1)
+
+;; company mode
+(global-company-mode)
 
 ;; 在底部打开term
 (defun bterm ()
