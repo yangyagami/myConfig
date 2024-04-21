@@ -9,6 +9,7 @@
 (require 'init-cc-mode)
 (require 'init-keybinds)
 (require 'init-dashboard)
+(require 'init-tab)
 ;; lsp
 ;; (require 'lsp-mode)
 ;; (add-hook 'c++-mode-hook #'lsp)
@@ -45,5 +46,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "RobotoMono Nerd Font" :foundry "pyrs" :slant normal :weight medium :height 128 :width normal)))))
+ '(default ((t (:family "RobotoMono Nerd Font" :foundry "pyrs" :slant normal :weight medium :height 128 :width normal))))
+ '(fancy-compilation-default-face ((t (:inherit ansi-color-white :background "white smoke")))))
 (put 'upcase-region 'disabled nil)
