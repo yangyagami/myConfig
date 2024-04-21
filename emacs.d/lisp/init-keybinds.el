@@ -6,6 +6,9 @@
 (global-set-key (kbd "C-,") 'beginning-of-buffer) ; 绑定 C-SPC-n 到移动到文档顶部
 (global-set-key (kbd "C-.") 'end-of-buffer) ; 绑定 C-SPC-p 到移动到文档底部
 
+;; 使用ace-window替换默认的窗格切换
+(global-set-key (kbd "C-x o") 'ace-window)
+
 ;; 插入一行
 (global-set-key (kbd "<C-return>") (lambda () (interactive) (end-of-line) (newline-and-indent)))
 (global-set-key (kbd "<C-S-return>") 'insert-line-above)
