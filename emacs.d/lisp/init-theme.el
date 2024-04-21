@@ -5,7 +5,7 @@
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
         doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  (load-theme 'doom-one t)
+  (load-theme 'doom-bluloco-light t)
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)
@@ -26,5 +26,11 @@
 (use-package all-the-icons
   :if (display-graphic-p))
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+
+;; 设置modeline高度
+(setq doom-modeline-height 35)
+
+;; Whether display the minor modes in the mode-line.
+(setq doom-modeline-minor-modes t)
 
 (provide 'init-theme)

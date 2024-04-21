@@ -9,6 +9,9 @@
 ;; 使用ace-window替换默认的窗格切换
 (global-set-key (kbd "C-x o") 'ace-window)
 
+;; F5重新编译
+(global-set-key (kbd "<f5>") 'recompile)
+
 ;; 插入一行
 (global-set-key (kbd "<C-return>") (lambda () (interactive) (end-of-line) (newline-and-indent)))
 (global-set-key (kbd "<C-S-return>") 'insert-line-above)
