@@ -14,9 +14,6 @@
 ;; tabbar
 (tab-bar-mode 1)
 
-;; company mode
-(global-company-mode)
-
 ;; 在底部打开term
 (defun bterm ()
   (interactive)

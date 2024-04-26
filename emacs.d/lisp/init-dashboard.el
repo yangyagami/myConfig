@@ -8,7 +8,7 @@
 (setq dashboard-banner-logo-title "I drive.")
 
 ;; Set the banner
-(setq dashboard-startup-banner "~/.emacs.d/welcome/ninja.png")
+(setq dashboard-startup-banner "~/.emacs.d/welcome/gosling.txt")
 ;; Value can be:
 ;;  - 'official which displays the official emacs logo.
 ;;  - 'logo which displays an alternative emacs logo.
