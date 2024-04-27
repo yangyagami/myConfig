@@ -19,7 +19,6 @@
           (lambda ()
             (setq-default qml-indent-offset 4))) ; 设置缩进为4个空格，你可以根据需要调整数字
 
-
 ;; 设置垃圾回收大小为100mb
 (setq gc-cons-threshold (* 512 1024 1024)
       read-process-output-max (* 32 1024 1024)
@@ -40,7 +39,7 @@
  '(global-display-line-numbers-mode t)
  '(org-agenda-files nil)
  '(package-selected-packages
-   '(magit-svn google-c-style dashboard ace-window which-key flycheck lsp-ui company lsp-mode qml-mode fancy-compilation all-the-icons-gnus all-the-icons-nerd-fonts all-the-icons-dired melpa-upstream-visit magit doom-modeline doom-themes)))
+   '(rainbow-delimiters magit-svn google-c-style dashboard ace-window which-key flycheck lsp-ui company lsp-mode qml-mode fancy-compilation all-the-icons-gnus all-the-icons-nerd-fonts all-the-icons-dired melpa-upstream-visit magit doom-modeline doom-themes)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

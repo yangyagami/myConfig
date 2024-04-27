@@ -34,4 +34,7 @@
 ;; 显示列数
 (column-number-mode 1)
 
+;; rainbow
+(rainbow-delimiters-mode 1)
+
 (provide 'init-basic)

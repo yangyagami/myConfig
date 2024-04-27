@@ -30,6 +30,16 @@
   (interactive)
   (move-beginning-of-line 1)
   (kill-line)
-)
+  )
+
+;; 超过两个窗格时，kill buffer自动关闭当前窗格
+(defun my-kill-buffer ()
+  (interactive)
+  (if (yes-or-no-p "Kill current buffer? ")
+      (if (one-window-p)
+          (kill-buffer)
+        (delete-window))
+    (message "Canceled")))
+(global-set-key (kbd "C-x k") 'my-kill-buffer)
 
 (provide 'init-keybinds)
