@@ -12,5 +12,6 @@
 (add-hook 'c++-mode-hook 'google-set-c-style)
 (add-hook 'c++-mode-hook 'company-mode)
 (add-hook 'c++-mode-hook 'flycheck-mode)
+(add-hook 'c++-mode-hook 'rainbow-delimiters-mode)
 
 (provide 'init-cc-mode)

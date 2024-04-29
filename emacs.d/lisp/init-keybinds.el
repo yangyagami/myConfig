@@ -33,13 +33,13 @@
   )
 
 ;; 超过两个窗格时，kill buffer自动关闭当前窗格
-(defun my-kill-buffer ()
+(defun my-close-buffer-or-window ()
+  "Close buffer if there's only one window, otherwise close both buffer and window."
   (interactive)
-  (if (yes-or-no-p "Kill current buffer? ")
-      (if (one-window-p)
-          (kill-buffer)
-        (delete-window))
-    (message "Canceled")))
-(global-set-key (kbd "C-x k") 'my-kill-buffer)
+  (if (one-window-p)
+      (kill-buffer)
+    (kill-buffer)
+    (delete-window)))
+(global-set-key (kbd "C-x C-k") 'my-close-buffer-or-window)
 
 (provide 'init-keybinds)
