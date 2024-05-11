@@ -14,4 +14,7 @@
 (add-hook 'c++-mode-hook 'flycheck-mode)
 (add-hook 'c++-mode-hook 'rainbow-delimiters-mode)
 
+(require 'lsp)
+(add-hook 'c++-mode-hook 'lsp-mode)
+
 (provide 'init-cc-mode)
