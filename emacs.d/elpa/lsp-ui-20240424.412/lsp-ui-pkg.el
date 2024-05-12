@@ -1,9 +1,9 @@
-(define-package "lsp-ui" "20240406.2119" "UI modules for lsp-mode"
+(define-package "lsp-ui" "20240424.412" "UI modules for lsp-mode"
   '((emacs "27.1")
     (dash "2.18.0")
     (lsp-mode "6.0")
     (markdown-mode "2.3"))
-  :commit "8aa8b175fc4cdf2d16f6f3fdb2904e8874610c8a" :authors
+  :commit "a59fb5d02eaa97908a06cfc07156de73458c8ae8" :authors
   '(("Sebastien Chapuis <sebastien@chapu.is>, Fangrui Song" . "i@maskray.me"))
   :maintainers
   '(("Sebastien Chapuis <sebastien@chapu.is>, Fangrui Song" . "i@maskray.me"))

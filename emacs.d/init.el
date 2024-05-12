@@ -16,9 +16,9 @@
           (lambda ()
             (setq-default qml-indent-offset 4))) ; 设置缩进为4个空格，你可以根据需要调整数字
 
-;; 设置垃圾回收大小为100mb
+;; 设置垃圾回收大小为512mb
 (setq gc-cons-threshold (* 512 1024 1024)
-      read-process-output-max (* 32 1024 1024)
+      read-process-output-max (* 128 1024 1024)
       treemacs-space-between-root-nodes nil
       company-idle-delay 0.0
       company-minimum-prefix-length 1
@@ -36,7 +36,7 @@
  '(global-display-line-numbers-mode t)
  '(org-agenda-files nil)
  '(package-selected-packages
-   '(vterm cmake-mode rainbow-delimiters magit-svn google-c-style dashboard ace-window which-key flycheck lsp-ui company lsp-mode qml-mode fancy-compilation all-the-icons-gnus all-the-icons-nerd-fonts all-the-icons-dired melpa-upstream-visit magit doom-modeline doom-themes)))
+   '(lsp-ui lsp-mode vterm cmake-mode rainbow-delimiters magit-svn google-c-style dashboard ace-window which-key flycheck company qml-mode fancy-compilation all-the-icons-gnus all-the-icons-nerd-fonts all-the-icons-dired melpa-upstream-visit magit doom-modeline doom-themes)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -45,3 +45,4 @@
  '(default ((t (:family "RobotoMono Nerd Font" :foundry "pyrs" :slant normal :weight medium :height 128 :width normal))))
  '(fancy-compilation-default-face ((t (:inherit ansi-color-white :background "black")))))
 (put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)

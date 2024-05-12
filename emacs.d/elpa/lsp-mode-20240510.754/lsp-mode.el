@@ -181,17 +181,17 @@ As defined by the Language Server Protocol 3.16."
      lsp-gdscript lsp-gleam lsp-glsl lsp-go lsp-golangci-lint lsp-grammarly
      lsp-graphql lsp-groovy lsp-hack lsp-haskell lsp-haxe lsp-idris lsp-java
      lsp-javascript lsp-jq lsp-json lsp-kotlin lsp-latex lsp-lisp lsp-ltex
-     lsp-lua lsp-magik lsp-markdown lsp-marksman lsp-mdx lsp-metals lsp-mint
+     lsp-lua lsp-magik lsp-markdown lsp-marksman lsp-mdx lsp-meson lsp-metals lsp-mint
      lsp-mojo lsp-move lsp-mssql lsp-nginx lsp-nim lsp-nix lsp-nushell lsp-ocaml
      lsp-openscad lsp-pascal lsp-perl lsp-perlnavigator lsp-php lsp-pls
      lsp-purescript lsp-pwsh lsp-pyls lsp-pylsp lsp-pyright lsp-python-ms
      lsp-qml lsp-r lsp-racket lsp-remark lsp-rf lsp-rubocop lsp-ruby-lsp
      lsp-ruby-syntax-tree lsp-ruff-lsp lsp-rust lsp-semgrep lsp-shader
-     lsp-solargraph lsp-solidity lsp-sonarlint lsp-sorbet lsp-sourcekit lsp-sqls
-     lsp-steep lsp-svelte lsp-tailwindcss lsp-terraform lsp-tex lsp-tilt
-     lsp-toml lsp-trunk lsp-ttcn3 lsp-typeprof lsp-v lsp-vala lsp-verilog
-     lsp-vetur lsp-vhdl lsp-vimscript lsp-volar lsp-wgsl lsp-xml lsp-yaml
-     lsp-yang lsp-zig)
+     lsp-solargraph lsp-solidity lsp-sonarlint lsp-sorbet lsp-sourcekit
+     lsp-sql lsp-sqls lsp-steep lsp-svelte lsp-tailwindcss lsp-terraform
+     lsp-tex lsp-tilt lsp-toml lsp-trunk lsp-ttcn3 lsp-typeprof lsp-v
+     lsp-vala lsp-verilog lsp-vetur lsp-vhdl lsp-vimscript lsp-volar lsp-wgsl
+     lsp-xml lsp-yaml lsp-yang lsp-zig)
   "List of the clients to be automatically required."
   :group 'lsp-mode
   :type '(repeat symbol))
@@ -801,6 +801,7 @@ Changes take effect only when a new session is started."
     ("^go\\.mod\\'" . "go.mod")
     ("^settings\\.json$" . "jsonc")
     ("^yang\\.settings$" . "jsonc")
+    ("^meson\\(_options\\.txt\\|\\.\\(build\\|format\\)\\)\\'" . "meson")
     (ada-mode . "ada")
     (ada-ts-mode . "ada")
     (gpr-mode . "gpr")
@@ -885,6 +886,7 @@ Changes take effect only when a new session is started."
     (typescript-mode . "typescript")
     (typescript-ts-mode . "typescript")
     (tsx-ts-mode . "typescriptreact")
+    (svelte-mode . "svelte")
     (fsharp-mode . "fsharp")
     (reason-mode . "reason")
     (caml-mode . "ocaml")
@@ -966,6 +968,7 @@ Changes take effect only when a new session is started."
     (protobuf-mode . "protobuf")
     (nushell-mode . "nushell")
     (nushell-ts-mode . "nushell")
+    (meson-mode . "meson")
     (yang-mode . "yang"))
   "Language id configuration.")
 
@@ -1125,6 +1128,9 @@ called with nil the signature info must be cleared."
 
 (defvar-local lsp--buffer-workspaces ()
   "List of the buffer workspaces.")
+
+(defvar-local lsp--buffer-deferred nil
+  "Whether buffer was loaded via `lsp-deferred'.")
 
 (defvar lsp--session nil
   "Contain the `lsp-session' for the current Emacs instance.")
@@ -2880,8 +2886,13 @@ and end-of-string meta-characters."
 
 (defun lsp-glob-to-regexps (glob-pattern)
   "Convert a GLOB-PATTERN to a list of Elisp regexps."
-  (let* ((trimmed-pattern (string-trim glob-pattern))
-         (top-level-unbraced-patterns (lsp-glob-unbrace-at-top-level trimmed-pattern)))
+  (when-let*
+      ((glob-pattern (cond ((hash-table-p glob-pattern)
+                            (ht-get glob-pattern "pattern"))
+                           ((stringp glob-pattern) glob-pattern)
+                           (t (error "Unknown glob-pattern type: %s" glob-pattern))))
+       (trimmed-pattern (string-trim glob-pattern))
+       (top-level-unbraced-patterns (lsp-glob-unbrace-at-top-level trimmed-pattern)))
     (seq-map #'lsp-glob-convert-to-wrapped-regexp
              top-level-unbraced-patterns)))
 
@@ -2926,7 +2937,7 @@ and end-of-string meta-characters."
     (:propertize "Disconnected" face warning))
    "]")
   :group 'lsp-mode
-  (when (and lsp-mode (not lsp--buffer-workspaces))
+  (when (and lsp-mode (not lsp--buffer-workspaces) (not lsp--buffer-deferred))
     ;; fire up `lsp' when someone calls `lsp-mode' instead of `lsp'
     (lsp)))
 
@@ -4079,7 +4090,7 @@ yet."
 (defvar eldoc-documentation-default) ; CI
 (when (< emacs-major-version 28)
   (unless (boundp 'eldoc-documentation-functions)
-    (load "eldoc"))
+    (load "eldoc" nil 'nomessage))
   (when (memq (default-value 'eldoc-documentation-function) '(nil ignore))
     ;; actually `eldoc-documentation-strategy', but CI was failing
     (setq-default eldoc-documentation-function 'eldoc-documentation-default)))
@@ -7629,9 +7640,6 @@ should return the command to start the LS server."
 
   ;; yas-snippet config
   (setq-local yas-inhibit-overlay-modification-protection t))
-
-(defvar-local lsp--buffer-deferred nil
-  "Whether buffer was loaded via `lsp-deferred'.")
 
 (defun lsp--restart-if-needed (workspace)
   "Handler restart for WORKSPACE."

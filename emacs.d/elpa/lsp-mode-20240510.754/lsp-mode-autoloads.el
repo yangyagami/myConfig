@@ -498,6 +498,11 @@ Start the alive-lsp." t)
 (register-definition-prefixes "lsp-mdx" '("lsp-mdx-server-command"))
 
 
+;;; Generated autoloads from lsp-meson.el
+
+(register-definition-prefixes "lsp-meson" '("lsp-meson-"))
+
+
 ;;; Generated autoloads from lsp-mint.el
 
 (register-definition-prefixes "lsp-mint" '("lsp-clients-mint-executable"))
@@ -843,6 +848,11 @@ it is disabled.
 ;;; Generated autoloads from lsp-sorbet.el
 
 (register-definition-prefixes "lsp-sorbet" '("lsp-sorbet-"))
+
+
+;;; Generated autoloads from lsp-sql.el
+
+(register-definition-prefixes "lsp-sql" '("lsp-sql-"))
 
 
 ;;; Generated autoloads from lsp-sqls.el

@@ -265,6 +265,8 @@ Because some variables are buffer local.")
          (buffer-list-update-hook nil))
      (with-current-buffer (get-buffer-create (lsp-ui-doc--make-buffer-name))
        (setq lsp-ui-doc--parent-vars parent-vars)
+       (setq left-margin-width 0)
+       (setq right-margin-width 0)
        (prog1 (let ((buffer-read-only nil)
                     (inhibit-modification-hooks t)
                     (inhibit-redisplay t))
@@ -499,7 +501,7 @@ We don't extract the string that `lps-line' is already displaying."
         (lsp-ui-doc--with-buffer
           (fill-region (point-min) (point-max)))))))
 
-(defun lsp-ui-doc--mv-at-point (width height start-x start-y)
+(defun lsp-ui-doc--mv-at-point (frame width height start-x start-y)
   "Return position of FRAME to be where the point is.
 WIDTH is the child frame width.
 HEIGHT is the child frame height.
@@ -514,9 +516,12 @@ FRAME just below the symbol at point."
                             (if (< (car it) (window-start))
                                 (cons 0 0)
                               (posn-x-y (posn-at-point (1- (window-end))))))))
-          (frame-relative-symbol-x (+ start-x x (* (frame-char-width) 2)))
-          (frame-relative-symbol-y (+ start-y y))
+          (char-width (frame-char-width))
           (char-height (frame-char-height))
+          (sbw (with-selected-frame frame (or (window-scroll-bar-width) 0)))
+          (sbh (with-selected-frame frame (or (window-scroll-bar-height) 0)))
+          (frame-relative-symbol-x (+ start-x x (* char-width 2) sbw))
+          (frame-relative-symbol-y (+ start-y y (- 0 sbh)))
           ;; Make sure the frame is positioned horizontally such that
           ;; it does not go beyond the frame boundaries.
           (frame-x (or (and (<= (frame-outer-width) (+ frame-relative-symbol-x width))
@@ -524,7 +529,7 @@ FRAME just below the symbol at point."
                                     (frame-outer-width))))
                        x))
           (frame-y (+ (or (and (<= height frame-relative-symbol-y)
-                               (- y height))
+                               (- y height sbh))
                           (+ y char-height))
                       (if (fboundp 'window-tab-line-height) (window-tab-line-height) 0))))
     (cons (+ start-x frame-x) (+ start-y frame-y))))
@@ -550,7 +555,7 @@ FRAME just below the symbol at point."
                          ('frame (frame-pixel-width))
                          ('window right)))
           ((left . top) (if (eq lsp-ui-doc-position 'at-point)
-                            (lsp-ui-doc--mv-at-point width height left top)
+                            (lsp-ui-doc--mv-at-point frame width height left top)
                           (cons (pcase lsp-ui-doc-side
                                   ('right (max (- frame-right width char-w) 10))
                                   ('left 10))
@@ -591,6 +596,11 @@ FRAME just below the symbol at point."
        (left-fringe . 0)))
     ;; Insert hr lines after width is computed
     (lsp-ui-doc--fix-hr-props)
+    ;; Force window to use buffer's margin settings instead of the
+    ;; parent window's settings.
+    (let ((window (frame-root-window frame))
+          (buffer (get-buffer (lsp-ui-doc--make-buffer-name))))
+      (set-window-buffer window buffer))
     (unless (frame-visible-p frame)
       (make-frame-visible frame))))
 
@@ -662,7 +672,7 @@ FN is the function to call on click."
       (when (< fill-column (length first-line))
         (fill-region start (point-max))))))
 
-(defun lsp-ui-doc--make-smaller-empty-lines nil
+(defun lsp-ui-doc--make-smaller-empty-lines ()
   "Make empty lines half normal lines."
   (progn  ; Customize line before header
     (goto-char 1)
@@ -682,7 +692,7 @@ FN is the function to call on click."
     (forward-line))
   (insert (propertize "\n\n" 'face '(:height 0.3))))
 
-(defun lsp-ui-doc--fix-hr-props nil
+(defun lsp-ui-doc--fix-hr-props ()
   ;; We insert the right display prop after window-text-pixel-size
   (lsp-ui-doc--with-buffer
     (let (next)
@@ -767,7 +777,7 @@ FN is the function to call on click."
 
 (defvar-local lsp-ui-doc--inline-width nil)
 
-(defun lsp-ui-doc--inline-window-width nil
+(defun lsp-ui-doc--inline-window-width ()
   (- (min (window-text-width) (window-body-width))
      (if (bound-and-true-p display-line-numbers-mode)
          (+ 2 (line-number-display-width))
@@ -854,7 +864,7 @@ HEIGHT is the documentation number of lines."
       (not (display-graphic-p))
       (not (fboundp 'display-buffer-in-child-frame))))
 
-(defun lsp-ui-doc--highlight-hover nil
+(defun lsp-ui-doc--highlight-hover ()
   (when lsp-ui-doc--from-mouse-current
     (-let* (((start . end) lsp-ui-doc--bounds)
             (ov (if (overlayp lsp-ui-doc--highlight-ov) lsp-ui-doc--highlight-ov
@@ -930,9 +940,10 @@ HEIGHT is the documentation number of lines."
     keyboard-quit
     ignore
     handle-switch-frame
-    mwheel-scroll))
+    mwheel-scroll)
+  "List of command to ignore requests.")
 
-(defun lsp-ui-doc--make-request nil
+(defun lsp-ui-doc--make-request ()
   "Request the documentation to the LS."
   (and (not track-mouse) lsp-ui-doc-show-with-mouse (setq-local track-mouse t))
   (when (and lsp-ui-doc-show-with-cursor
@@ -1094,9 +1105,18 @@ Argument WIN is current applying window."
            :mode 'tick
            :cancel-token :lsp-ui-doc-hover))))))
 
+(defun lsp-ui-doc--tooltip-mouse-motion (event)
+  "Default tooltip (EVENT) action."
+  (interactive "e")
+  (tooltip-hide)
+  (when (car (mouse-pixel-position))
+    (tooltip-start-delayed-tip)
+    (setq tooltip-last-mouse-motion-event event)))
+
 (defun lsp-ui-doc--handle-mouse-movement (event)
   "Show the documentation corresponding to the text under EVENT."
   (interactive "e")
+  (lsp-ui-doc--tooltip-mouse-motion event)
   (when lsp-ui-doc-show-with-mouse
     (lsp-ui-util-safe-kill-timer lsp-ui-doc--timer-mouse-movement)
     (let* ((e (cadr event))
@@ -1128,14 +1148,24 @@ Argument WIN is current applying window."
   "Nil if `track-mouse' was set by another package.
 If nil, do not prevent mouse on prefix keys.")
 
-(defun lsp-ui-doc--setup-mouse nil
-  (when lsp-ui-doc-show-with-mouse
+(defvar lsp-ui-doc-mode-map
+  (let ((map (make-sparse-keymap)))
+    map)
+  "Keymap for `lsp-ui-doc-mode'.")
+
+(defun lsp-ui-doc--setup-mouse ()
+  "Setup mouse."
+  (cond
+   (lsp-ui-doc-show-with-mouse
+    (define-key lsp-ui-doc-mode-map (kbd "<mouse-movement>") #'lsp-ui-doc--handle-mouse-movement)
     (setq lsp-ui-doc--mouse-tracked-by-us (not track-mouse))
     (setq-local track-mouse t)
     (unless lsp-ui-doc--timer-mouse-idle
       ;; Set only 1 timer for all buffers
       (setq lsp-ui-doc--timer-mouse-idle
-            (run-with-idle-timer 0 t 'lsp-ui-doc--disable-mouse-on-prefix)))))
+            (run-with-idle-timer 0 t 'lsp-ui-doc--disable-mouse-on-prefix))))
+   (t
+    (define-key lsp-ui-doc-mode-map (kbd "<mouse-movement>") nil))))
 
 (defun lsp-ui-doc--prevent-focus-doc (e)
   (not (frame-parameter (cadr e) 'lsp-ui-doc--no-focus)))
@@ -1143,7 +1173,7 @@ If nil, do not prevent mouse on prefix keys.")
 (define-minor-mode lsp-ui-doc-mode
   "Minor mode for showing hover information in child frame."
   :init-value nil
-  :keymap `((,(kbd "<mouse-movement>") . lsp-ui-doc--handle-mouse-movement))
+  :keymap lsp-ui-doc-mode-map
   :group lsp-ui-doc
   (cond
    (lsp-ui-doc-mode
@@ -1217,6 +1247,7 @@ It is supposed to be called from `lsp-ui--toggle'"
   (interactive)
   (when-let* ((frame (lsp-ui-doc--get-frame))
               (visible (lsp-ui-doc--frame-visible-p)))
+    (remove-hook 'post-command-hook 'lsp-ui-doc--unfocus-frame-post-command)
     (remove-hook 'post-command-hook 'lsp-ui-doc--hide-frame)
     (set-frame-parameter frame 'lsp-ui-doc--no-focus nil)
     (set-frame-parameter frame 'cursor-type t)
@@ -1233,8 +1264,14 @@ It is supposed to be called from `lsp-ui--toggle'"
     (set-frame-parameter frame 'cursor-type nil)
     (lsp-ui-doc--with-buffer
       (setq cursor-type nil))
-    (when lsp-ui-doc--from-mouse
-      (make-frame-invisible frame))))
+    (if lsp-ui-doc--from-mouse
+        (make-frame-invisible frame)
+      (add-hook'post-command-hook 'lsp-ui-doc--unfocus-frame-post-command))))
+
+(defun lsp-ui-doc--unfocus-frame-post-command ()
+  "Hide frame on the next post command after unfocus frame."
+  (add-hook 'post-command-hook 'lsp-ui-doc--hide-frame)
+  (remove-hook 'post-command-hook 'lsp-ui-doc--unfocus-frame-post-command))
 
 (provide 'lsp-ui-doc)
 ;;; lsp-ui-doc.el ends here

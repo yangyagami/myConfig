@@ -42,13 +42,13 @@
 		 ("Jordon Biondo" . "jordonbiondo@gmail.com"))
 		(:commit . "33691c93ee302690e41f631f82083bcc15d229e8"))])
  (annotate .
-	   [(2 2 1)
+	   [(2 2 2)
 	    nil "annotate files without changing them" tar
 	    ((:url . "https://github.com/bastibe/annotate.el")
 	     (:maintainer
 	      ("Bastian Bechtold" . "bastibe.dev@mailbox.org")
 	      ("cage" . "cage-dev@twistfold.it"))
-	     (:commit . "a388c39231207f6234ca1af547dbd29995ee476f"))])
+	     (:commit . "deb43c7c429a021d16d6d67b82e7a3053a6eef67"))])
  (anti-zenburn-theme .
 		     [(2 5 1)
 		      nil "Low-contrast Zenburn-inverted theme" tar
@@ -351,15 +351,18 @@
 		     ("Nicholas M. Van Horn" . "nvanhorn@protonmail.com"))
 		    (:commit . "81004fc774d373777d426926fc11abcf1e7ab334"))])
  (cycle-at-point .
-		 [(0 1)
+		 [(0 2)
 		  ((emacs
-		    (27 1))
+		    (29 1))
 		   (recomplete
 		    (0 2)))
 		  "Cycle (rotate) the thing under the cursor" tar
-		  ((:url . "https://gitlab.com/ideasman42/emacs-cycle-at-point")
+		  ((:url . "https://codeberg.org/ideasman42/emacs-cycle-at-point")
 		   (:keywords "convenience")
-		   (:commit . "ea22b90f35f4cef73387047b3ef3fad83787d4e2"))])
+		   (:maintainer "Campbell Barton" . "ideasman42@gmail.com")
+		   (:authors
+		    ("Campbell Barton" . "ideasman42@gmail.com"))
+		   (:commit . "83d94733fd8ed64f2ba40f4e1df7ecbfe8260e51"))])
  (d-mode .
 	 [(202003130913)
 	  ((emacs
@@ -486,7 +489,7 @@
 		   ("Fanael Linithien" . "fanael4@gmail.com"))
 		  (:commit . "82a28d8a85277cfe453af464603ea330eae41c05"))])
  (editorconfig .
-	       [(0 10 1)
+	       [(0 11 0)
 		((emacs
 		  (26 1))
 		 (nadvice
@@ -497,7 +500,7 @@
 		 (:maintainer "EditorConfig Team" . "editorconfig@googlegroups.com")
 		 (:authors
 		  ("EditorConfig Team" . "editorconfig@googlegroups.com"))
-		 (:commit . "ed760770ed5397120b3d68b69afc0778c48d3a47"))])
+		 (:commit . "f1531bab5b57e40759167b7e5db49acbbc09972f"))])
  (elixir-mode .
 	      [(2 5 0)
 	       ((emacs
@@ -1075,6 +1078,18 @@
 	     (:authors
 	      ("David Andersson" . "l.david.anderssonsverige.nu"))
 	     (:commit . "278cd3e6d5107693aa2bb33189ca503f22f227d0"))])
+ (gptel .
+	[(0 8 6)
+	 ((emacs
+	   (27 1))
+	  (transient
+	   (0 4 0))
+	  (compat
+	   (29 1 4 1)))
+	 "Interact with ChatGPT or other LLMs" tar
+	 ((:url . "https://github.com/karthink/gptel")
+	  (:keywords "convenience")
+	  (:commit . "cdb07d0d2bb6a4fe6d6a620aa4eec98f70fe6f78"))])
  (graphql-mode .
 	       [(1 0 0)
 		((emacs
@@ -1388,16 +1403,18 @@
 	      ("Aaron Smith" . "aaron-lua@gelatinous.com"))
 	     (:commit . "1cb83e691627fb92290d452cb08b6c5f73fe19b6"))])
  (macrostep .
-	    [(0 9 2)
+	    [(0 9 4)
 	     ((cl-lib
-	       (0 5)))
+	       (0 5))
+	      (compat
+	       (29)))
 	     "Interactive macro expander" tar
 	     ((:url . "https://github.com/emacsorphanage/macrostep")
 	      (:keywords "lisp" "languages" "macro" "debugging")
 	      (:maintainer "Jon Oddie" . "j.j.oddie@gmail.com")
 	      (:authors
 	       ("Jon Oddie" . "j.j.oddie@gmail.com"))
-	      (:commit . "633586421e7fc14072cc1ca1655c1103b81a9093"))])
+	      (:commit . "31d4adcca4f08cfd7a45f85e691aaa7a9316b355"))])
  (magit .
 	[(3 3 0)
 	 ((emacs
@@ -2043,15 +2060,15 @@
 	      ("Chen Bin" . "chenbin.sh@gmail.com"))
 	     (:commit . "4e71f5b9199a0ad10017104a6b2bf5ef5f207dfc"))])
  (slime .
-	[(2 29 1)
-	 ((cl-lib
-	   (0 5))
+	[(2 30)
+	 ((emacs
+	   (24 3))
 	  (macrostep
 	   (0 9)))
 	 "Superior Lisp Interaction Mode for Emacs" tar
 	 ((:url . "https://github.com/slime/slime")
 	  (:keywords "languages" "lisp" "slime")
-	  (:commit . "d85dd9899f7524513c8ad1bd47b0dd248b1915cb"))])
+	  (:commit . "ef2af895a9e79306f0789e72b101aa39e960c900"))])
  (sly .
       [(1 0 43)
        ((emacs
@@ -2472,14 +2489,14 @@
 	     ((:url . "https://github.com/lewang/ws-butler")
 	      (:commit . "323b651dd70ee40a25accc940b8f80c3a3185205"))])
  (xah-fly-keys .
-	       [(24 24 20240406145635)
+	       [(25 4 20240510104842)
 		((emacs
 		  (27)))
 		"ergonomic modal keybinding minor mode." tar
 		((:url . "http://xahlee.info/emacs/misc/xah-fly-keys.html")
 		 (:keywords "convenience" "vi" "vim" "ergoemacs" "keybinding")
 		 (:maintainer "Xah Lee" . "xah@xahlee.org")
-		 (:commit . "ab78ee6092507be9a8b45dee54f69d93c1f055e6"))])
+		 (:commit . "d36b208ec1cd11bd5aaa2025137b854f086d2f8e"))])
  (xkcd .
        [(1 1)
 	((json
