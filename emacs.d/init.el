@@ -16,9 +16,10 @@
           (lambda ()
             (setq-default qml-indent-offset 4))) ; 设置缩进为4个空格，你可以根据需要调整数字
 
-;; 设置垃圾回收大小为512mb
-(setq gc-cons-threshold (* 512 1024 1024)
-      read-process-output-max (* 128 1024 1024)
+;; 设置垃圾回收大小为16mb
+(setq gc-cons-threshold (* 8 1024 1024)
+      gc-cons-percentage 0.5
+      read-process-output-max (* 8 1024 1024)
       treemacs-space-between-root-nodes nil
       company-idle-delay 0.0
       company-minimum-prefix-length 1
