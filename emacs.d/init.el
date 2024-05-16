@@ -44,6 +44,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "RobotoMono Nerd Font" :foundry "pyrs" :slant normal :weight medium :height 128 :width normal))))
- '(fancy-compilation-default-face ((t (:inherit ansi-color-white :background "black")))))
+ '(fancy-compilation-default-face ((t (:inherit ansi-color-white :background "white smoke")))))
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
