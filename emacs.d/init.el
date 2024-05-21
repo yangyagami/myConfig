@@ -10,7 +10,7 @@
 (require 'init-keybinds)
 (require 'init-dashboard)
 (require 'init-tab)
-(require 'init-ivy)
+;; (require 'init-ivy)
 
 ;; qml 设置
 (add-hook 'qml-mode-hook
