@@ -18,7 +18,7 @@
             (setq-default qml-indent-offset 4))) ; 设置缩进为4个空格，你可以根据需要调整数字
 
 ;; 设置垃圾回收大小为16mb
-(setq gc-cons-threshold (* 8 1024 1024)
+(setq gc-cons-threshold (* 32 1024 1024)
       gc-cons-percentage 0.5
       read-process-output-max (* 8 1024 1024)
       treemacs-space-between-root-nodes nil
@@ -38,7 +38,7 @@
  '(global-display-line-numbers-mode t)
  '(org-agenda-files nil)
  '(package-selected-packages
-   '(counsel swiper ivy lsp-ui lsp-mode vterm cmake-mode rainbow-delimiters magit-svn google-c-style dashboard ace-window which-key flycheck company qml-mode fancy-compilation all-the-icons-gnus all-the-icons-nerd-fonts all-the-icons-dired melpa-upstream-visit magit doom-modeline doom-themes)))
+   '(lua-mode counsel swiper ivy lsp-ui lsp-mode vterm cmake-mode rainbow-delimiters magit-svn google-c-style dashboard ace-window which-key flycheck company qml-mode fancy-compilation all-the-icons-gnus all-the-icons-nerd-fonts all-the-icons-dired melpa-upstream-visit magit doom-modeline doom-themes)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
