@@ -1,7 +1,6 @@
 ;; C++ 设置
 ;; 格式化
 (require 'google-c-style)
-
 (add-hook 'c++-mode-hook
           (lambda ()
             (setq c-basic-offset 2)
