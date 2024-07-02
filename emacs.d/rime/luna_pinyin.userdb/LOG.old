@@ -1,0 +1,5 @@
+2024/07/02-22:02:20.504954 128041623742144 Log #3: 5 ops saved to Table #4 OK
+2024/07/02-22:02:20.505206 128041623742144 Archiving /home/yangsiyu/.emacs.d/rime/luna_pinyin.userdb/000003.log: OK
+2024/07/02-22:02:20.505257 128041623742144 Table #4: 5 entries OK
+2024/07/02-22:02:20.505442 128041623742144 Archiving /home/yangsiyu/.emacs.d/rime/luna_pinyin.userdb/MANIFEST-000002: OK
+2024/07/02-22:02:20.512351 128041623742144 **** Repaired leveldb /home/yangsiyu/.emacs.d/rime/luna_pinyin.userdb; recovered 1 files; 253 bytes. Some data may have been lost. ****

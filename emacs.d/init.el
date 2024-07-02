@@ -10,6 +10,7 @@
 (require 'init-keybinds)
 (require 'init-dashboard)
 (require 'init-tab)
+(require 'init-rime)
 ;; (require 'init-ivy)
 
 ;; qml 设置
@@ -17,8 +18,8 @@
           (lambda ()
             (setq-default qml-indent-offset 4))) ; 设置缩进为4个空格，你可以根据需要调整数字
 
-;; 设置垃圾回收大小为16mb
-(setq gc-cons-threshold (* 32 1024 1024)
+;; 设置垃圾回收大小为64mb
+(setq gc-cons-threshold (* 64 1024 1024)
       gc-cons-percentage 0.5
       read-process-output-max (* 8 1024 1024)
       treemacs-space-between-root-nodes nil
@@ -33,12 +34,12 @@
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(custom-safe-themes
-   '("88f7ee5594021c60a4a6a1c275614103de8c1435d6d08cc58882f920e0cec65e" "aec7b55f2a13307a55517fdf08438863d694550565dee23181d2ebd973ebd6b8" "6f96a9ece5fdd0d3e04daea6aa63e13be26b48717820aa7b5889c602764cf23a" "014cb63097fc7dbda3edf53eb09802237961cbb4c9e9abd705f23b86511b0a69" "7964b513f8a2bb14803e717e0ac0123f100fb92160dcf4a467f530868ebaae3e" "d6b934330450d9de1112cbb7617eaf929244d192c4ffb1b9e6b63ad574784aad" default))
+   '("4594d6b9753691142f02e67b8eb0fda7d12f6cc9f1299a49b819312d6addad1d" "88f7ee5594021c60a4a6a1c275614103de8c1435d6d08cc58882f920e0cec65e" "aec7b55f2a13307a55517fdf08438863d694550565dee23181d2ebd973ebd6b8" "6f96a9ece5fdd0d3e04daea6aa63e13be26b48717820aa7b5889c602764cf23a" "014cb63097fc7dbda3edf53eb09802237961cbb4c9e9abd705f23b86511b0a69" "7964b513f8a2bb14803e717e0ac0123f100fb92160dcf4a467f530868ebaae3e" "d6b934330450d9de1112cbb7617eaf929244d192c4ffb1b9e6b63ad574784aad" default))
  '(display-time-mode t)
  '(global-display-line-numbers-mode t)
  '(org-agenda-files nil)
  '(package-selected-packages
-   '(docker lua-mode counsel swiper ivy lsp-ui lsp-mode vterm cmake-mode rainbow-delimiters magit-svn google-c-style dashboard ace-window which-key flycheck company qml-mode fancy-compilation all-the-icons-gnus all-the-icons-nerd-fonts all-the-icons-dired melpa-upstream-visit magit doom-modeline doom-themes))
+   '(rime docker lua-mode counsel swiper ivy lsp-ui lsp-mode vterm cmake-mode rainbow-delimiters magit-svn google-c-style dashboard ace-window which-key flycheck company qml-mode fancy-compilation all-the-icons-gnus all-the-icons-nerd-fonts all-the-icons-dired melpa-upstream-visit magit doom-modeline doom-themes))
  '(vterm-tramp-shells '(("docker" "/bin/bash"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
