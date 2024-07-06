@@ -8,7 +8,7 @@
     // Choose the order of the modules
     "modules-left": [
         "hyprland/workspaces",
-        "sway/mode",
+        "hyprland/mode",
         "sway/scratchpad",
         "custom/media"
     ],
@@ -58,7 +58,7 @@
             "unlocked": ""
         }
     },
-    "sway/mode": {
+    "hyprland/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
     "sway/scratchpad": {
