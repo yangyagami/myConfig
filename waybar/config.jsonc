@@ -58,6 +58,9 @@
             "unlocked": ""
         }
     },
+    "hyprland/window": {
+        "format": "{title}"
+    },
     "hyprland/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
