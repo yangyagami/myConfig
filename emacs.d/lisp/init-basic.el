@@ -8,8 +8,12 @@
 ;; 默认打开fancy-compilation
 (fancy-compilation-mode 1)
 
-;; 关闭tool bar
+;; 关闭toolbar
 (tool-bar-mode 0)
+;; 关闭menubar
+(menu-bar-mode 0)
+;; 关闭scrollbar
+(scroll-bar-mode 0)
 
 ;; tabbar
 (tab-bar-mode 1)
