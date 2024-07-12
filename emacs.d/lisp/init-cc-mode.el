@@ -16,5 +16,6 @@
 
 (require 'lsp)
 (add-hook 'c++-mode-hook 'lsp-mode)
+(setq lsp-clients-clangd-args '("--header-insertion=never"))
 
 (provide 'init-cc-mode)
