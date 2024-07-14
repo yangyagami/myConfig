@@ -5,6 +5,9 @@
 (require 'which-key)
 (which-key-mode 1)
 
+;; 关闭启动页面
+(setq inhibit-startup-screen t)
+
 ;; 默认打开fancy-compilation
 (fancy-compilation-mode 1)
 

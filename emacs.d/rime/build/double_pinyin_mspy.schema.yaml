@@ -2,16 +2,16 @@ __build_info:
   rime_version: 1.11.1
   timestamps:
     default: 1654509030
-    default.custom: 1719969390
+    default.custom: 1719929376
     double_pinyin_mspy.custom: 0
-    double_pinyin_mspy.schema: 1720011394
+    double_pinyin_mspy.schema: 1717505494
     key_bindings: 1654509030
     key_bindings.custom: 0
     punctuation: 1654509030
     punctuation.custom: 0
-    rime_ice_suggestion: 1720011394
+    rime_ice_suggestion: 1717505494
     rime_ice_suggestion.custom: 0
-    symbols_caps_v: 1720011394
+    symbols_caps_v: 1717505494
     symbols_caps_v.custom: 0
 cn_en:
   comment_format:

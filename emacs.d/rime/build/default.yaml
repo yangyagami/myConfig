@@ -2,12 +2,12 @@ __build_info:
   rime_version: 1.11.1
   timestamps:
     default: 1654509030
-    default.custom: 1719969390
+    default.custom: 1719929376
     key_bindings: 1654509030
     key_bindings.custom: 0
     punctuation: 1654509030
     punctuation.custom: 0
-    rime_ice_suggestion: 1720011394
+    rime_ice_suggestion: 1717505494
     rime_ice_suggestion.custom: 0
 ascii_composer:
   good_old_caps_lock: true
