@@ -6,8 +6,9 @@
 (global-set-key (kbd "C-,") 'beginning-of-buffer) ; 绑定 C-SPC-n 到移动到文档顶部
 (global-set-key (kbd "C-.") 'end-of-buffer) ; 绑定 C-SPC-p 到移动到文档底部
 
-;; F5重新编译
+;; F5重新编译，F6编译
 (global-set-key (kbd "<f5>") 'recompile)
+(global-set-key (kbd "<f6>") 'compile)
 
 ;; 分割窗口
 (global-set-key (kbd "M-\\") 'split-window-right)
