@@ -9,6 +9,10 @@
 ;; F5重新编译
 (global-set-key (kbd "<f5>") 'recompile)
 
+;; 分割窗口
+(global-set-key (kbd "M-\\") 'split-window-right)
+(global-set-key (kbd "M--") 'split-window-below)
+
 ;; 插入一行
 (global-set-key (kbd "<C-return>") (lambda () (interactive) (end-of-line) (newline-and-indent)))
 (global-set-key (kbd "<C-S-return>") 'insert-line-above)
