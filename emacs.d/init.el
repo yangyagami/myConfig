@@ -43,7 +43,7 @@
  '(global-display-line-numbers-mode t)
  '(org-agenda-files nil)
  '(package-selected-packages
-   '(rime docker lua-mode counsel swiper ivy lsp-ui lsp-mode vterm cmake-mode rainbow-delimiters magit-svn google-c-style dashboard ace-window which-key flycheck company qml-mode fancy-compilation all-the-icons-gnus all-the-icons-nerd-fonts all-the-icons-dired melpa-upstream-visit magit doom-modeline doom-themes))
+   '(winum rime docker lua-mode counsel swiper ivy lsp-ui lsp-mode vterm cmake-mode rainbow-delimiters magit-svn google-c-style dashboard which-key flycheck company qml-mode fancy-compilation all-the-icons-gnus all-the-icons-nerd-fonts all-the-icons-dired melpa-upstream-visit magit doom-modeline doom-themes))
  '(vterm-tramp-shells '(("docker" "/bin/bash"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
