@@ -5,10 +5,10 @@
   (dashboard-setup-startup-hook))
 
 ;; Set the title
-(setq dashboard-banner-logo-title "I drive.")
+(setq dashboard-banner-logo-title "我知道你为了什么而来。")
 
 ;; Set the banner
-(setq dashboard-startup-banner "~/.emacs.d/welcome/gosling.txt")
+(setq dashboard-startup-banner "~/.emacs.d/welcome/无畏契约.png")
 ;; Value can be:
 ;;  - 'official which displays the official emacs logo.
 ;;  - 'logo which displays an alternative emacs logo.
