@@ -384,7 +384,7 @@
 		    ("Campbell Barton" . "ideasman42@gmail.com"))
 		   (:commit . "83d94733fd8ed64f2ba40f4e1df7ecbfe8260e51"))])
  (d-mode .
-	 [(202405290611)
+	 [(202408131340)
 	  ((emacs
 	    (25 1)))
 	  "D Programming Language major mode for (X)Emacs" tar
@@ -393,7 +393,7 @@
 	    ("Russel Winder" . "russel@winder.org.uk")
 	    ("Vladimir Panteleev" . "vladimir@thecybershadow.net"))
 	   (:url . "https://elpa.nongnu.org/nongnu/d-mode.html")
-	   (:commit . "7d280251de13c0042c0846ff4eaa5b1937fcbe01"))])
+	   (:commit . "688f5af819e461badfd6fda642937153b4946813"))])
  (dart-mode .
 	    [(1 0 7)
 	     ((emacs
@@ -551,6 +551,16 @@
 	   (:authors
 	    ("Tim Vaughan" . "plugd@thelambdalab.xyz"))
 	   (:commit . "0bd12913940a047724d830725bf8649e4f8df499"))])
+ (emacsql .
+	  [(4 0 0)
+	   ((emacs
+	     (25 1)))
+	   "High-level SQL database front-end" tar
+	   ((:url . "https://github.com/magit/emacsql")
+	    (:maintainer "Jonas Bernoulli" . "emacs.emacsql@jonas.bernoulli.dev")
+	    (:authors
+	     ("Christopher Wellons" . "wellons@nullprogram.com"))
+	    (:commit . "3d9622aabbf3ab925beadd12ce928370d7704573"))])
  (engine-mode .
 	      [(2 2 4)
 	       ((cl-lib
@@ -941,9 +951,9 @@
 		   ("András Simonyi" . "andras.simonyi@gmail.com"))
 		  (:commit . "9e7ed54e5629f759660569bc7efc3d75dbabbc5f"))])
  (geiser-guile .
-	       [(0 28 1)
+	       [(0 28 2)
 		((emacs
-		  (25 1))
+		  (26 1))
 		 (transient
 		  (0 3))
 		 (geiser
@@ -954,7 +964,7 @@
 		 (:maintainer "Jose Antonio Ortega Ruiz" . "(jao@gnu.org)")
 		 (:authors
 		  ("Jose Antonio Ortega Ruiz" . "(jao@gnu.org)"))
-		 (:commit . "f57bfd5039ce158de95d2ef2933e64fb16def4f6"))])
+		 (:commit . "5a856c2982030ff77e2d151ead4fcd991512f362"))])
  (geiser-kawa .
 	      [(0 0 1)
 	       ((emacs
@@ -1007,30 +1017,33 @@
 		   ("Jeronimo Pellegrini" . "(j_p@aleph0.info)"))
 		  (:commit . "3358d0cc01436bd8f71a500175db2716e75b2eed"))])
  (git-commit .
-	     [(3 3 0)
+	     [(4 0 0)
 	      ((emacs
-		(25 1))
-	       (dash
-		(2 19 1))
+		(26 1))
+	       (compat
+		(30 0 0 0))
+	       (seq
+		(2 24))
 	       (transient
-		(0 3 6))
+		(0 7 4))
 	       (with-editor
-		(3 0 5)))
+		(3 4 1)))
 	      "Edit Git commit messages" tar
 	      ((:url . "https://github.com/magit/magit")
 	       (:keywords "git" "tools" "vc")
-	       (:maintainer "Jonas Bernoulli" . "jonas@bernoul.li")
+	       (:maintainer "Jonas Bernoulli" . "emacs.magit@jonas.bernoulli.dev")
 	       (:authors
-		("Jonas Bernoulli" . "jonas@bernoul.li")
+		("Jonas Bernoulli" . "emacs.magit@jonas.bernoulli.dev")
 		("Sebastian Wiesner" . "lunaryorn@gmail.com")
 		("Florian Ragwitz" . "rafl@debian.org")
-		("Marius Vollmer" . "marius.vollmer@gmail.com")))])
+		("Marius Vollmer" . "marius.vollmer@gmail.com"))
+	       (:commit . "020aca7c9c4154dbc4a72acbd56165ecccea1bf1"))])
  (git-modes .
-	    [(1 4 3)
+	    [(1 4 4)
 	     ((emacs
-	       (25 1))
+	       (26 1))
 	      (compat
-	       (29 1 4 5)))
+	       (30 0 0 0)))
 	     "Major modes for editing Git configuration files" tar
 	     ((:url . "https://github.com/magit/git-modes")
 	      (:keywords "convenience" "vc" "git")
@@ -1039,7 +1052,7 @@
 	       ("Sebastian Wiesner" . "lunaryorn@gmail.com")
 	       ("Rüdiger Sonderfeld" . "ruediger@c-plusplus.net")
 	       ("Jonas Bernoulli" . "emacs.git-modes@jonas.bernoulli.dev"))
-	      (:commit . "7901415b39bef1b789d161ca2c10dfb910d13780"))])
+	      (:commit . "f99010bbeb8b6d8a0819fac0195a2ef0159d08f0"))])
  (gnu-apl-mode .
 	       [(1 5 1)
 		nil "Emacs mode for GNU APL" tar
@@ -1386,18 +1399,18 @@
 	       (:keywords "languages")
 	       (:commit . "6408b96c1c97e41bc2af060d661afee4f7b22e89"))])
  (keycast .
-	  [(1 4 0)
+	  [(1 4 1)
 	   ((emacs
-	     (25 3))
+	     (26 1))
 	    (compat
-	     (29 1 4 5)))
+	     (30 0 0 0)))
 	   "Show current command and its binding" tar
 	   ((:url . "https://github.com/tarsius/keycast")
 	    (:keywords "multimedia")
 	    (:maintainer "Jonas Bernoulli" . "emacs.keycast@jonas.bernoulli.dev")
 	    (:authors
 	     ("Jonas Bernoulli" . "emacs.keycast@jonas.bernoulli.dev"))
-	    (:commit . "f04466cd8f8226715f113635204dc978171f63b7"))])
+	    (:commit . "c44618d2867fc2410e5061fef2a805e974198cf2"))])
  (kotlin-mode .
 	      [(2 0 0)
 	       ((emacs
@@ -1458,38 +1471,50 @@
 	       ("Jon Oddie" . "j.j.oddie@gmail.com"))
 	      (:commit . "31d4adcca4f08cfd7a45f85e691aaa7a9316b355"))])
  (magit .
-	[(3 3 0)
+	[(4 0 0)
 	 ((emacs
-	   (25 1))
+	   (26 1))
+	  (compat
+	   (30 0 0 0))
 	  (dash
 	   (2 19 1))
 	  (git-commit
-	   (3 3 0))
+	   (4 0 0))
 	  (magit-section
-	   (3 3 0))
+	   (4 0 0))
+	  (seq
+	   (2 24))
 	  (transient
-	   (0 3 6))
+	   (0 7 4))
 	  (with-editor
-	   (3 0 5)))
+	   (3 4 1)))
 	 "A Git porcelain inside Emacs" tar
 	 ((:url . "https://github.com/magit/magit")
 	  (:keywords "git" "tools" "vc")
-	  (:maintainer "Jonas Bernoulli" . "jonas@bernoul.li")
+	  (:maintainer
+	   ("Jonas Bernoulli" . "emacs.magit@jonas.bernoulli.dev")
+	   ("Kyle Meyer" . "kyle@kyleam.com"))
 	  (:authors
 	   ("Marius Vollmer" . "marius.vollmer@gmail.com")
-	   ("Jonas Bernoulli" . "jonas@bernoul.li")))])
+	   ("Jonas Bernoulli" . "emacs.magit@jonas.bernoulli.dev"))
+	  (:commit . "020aca7c9c4154dbc4a72acbd56165ecccea1bf1"))])
  (magit-section .
-		[(3 3 0)
+		[(4 0 0)
 		 ((emacs
-		   (25 1))
+		   (26 1))
+		  (compat
+		   (30 0 0 0))
 		  (dash
-		   (2 19 1)))
+		   (2 19 1))
+		  (seq
+		   (2 24)))
 		 "Sections for read-only buffers" tar
 		 ((:url . "https://github.com/magit/magit")
 		  (:keywords "tools")
-		  (:maintainer "Jonas Bernoulli" . "jonas@bernoul.li")
+		  (:maintainer "Jonas Bernoulli" . "emacs.magit@jonas.bernoulli.dev")
 		  (:authors
-		   ("Jonas Bernoulli" . "jonas@bernoul.li")))])
+		   ("Jonas Bernoulli" . "emacs.magit@jonas.bernoulli.dev"))
+		  (:commit . "020aca7c9c4154dbc4a72acbd56165ecccea1bf1"))])
  (markdown-mode .
 		[(2 6)
 		 ((emacs
@@ -1765,22 +1790,22 @@
 		    ("Takaaki ISHIKAWA" . "takaxpatieeedotorg"))
 		   (:commit . "941e7e6cb8a5a0b193345263ed912cceecae1887"))])
  (orgit .
-	[(1 9 0)
+	[(2 0 0)
 	 ((emacs
-	   (25 1))
+	   (26 1))
 	  (compat
-	   (29 1 4 1))
+	   (30 0 0 0))
 	  (magit
-	   (3 3 0))
+	   (4 0 0))
 	  (org
-	   (9 6 5)))
+	   (9 7 8)))
 	 "Support for Org links to Magit buffers" tar
 	 ((:url . "https://github.com/magit/orgit")
 	  (:keywords "hypermedia" "vc")
-	  (:maintainer "Jonas Bernoulli" . "jonas@bernoul.li")
+	  (:maintainer "Jonas Bernoulli" . "emacs.orgit@jonas.bernoulli.dev")
 	  (:authors
-	   ("Jonas Bernoulli" . "jonas@bernoul.li"))
-	  (:commit . "4a585029875a1dbbe96d8ac157bd2fd02875f289"))])
+	   ("Jonas Bernoulli" . "emacs.orgit@jonas.bernoulli.dev"))
+	  (:commit . "59d21fdb21f84238c3172d37fdd2446b753e98dc"))])
  (p4-16-mode .
 	     [(0 3)
 	      nil "Support for the P4_16 programming language" tar
@@ -1963,7 +1988,7 @@
 	       ("David Christiansen" . "david@davidchristiansen.dk"))
 	      (:commit . "1edda80e2e32b72e77f4f16ae5b83c312c68ee95"))])
  (racket-mode .
-	      [(1 0 20240718 150548)
+	      [(1 0 20240813 124142)
 	       ((emacs
 		 (25 1)))
 	       "Racket editing, REPL, and more" tar
@@ -2071,11 +2096,13 @@
 	       ("Daniel Mendler" . "mail@daniel-mendler.de"))
 	      (:commit . "3c32b141f083c31539bb24700eb0aa23ea55918c"))])
  (scala-mode .
-	     [(0 23)
-	      nil "Major mode for editing Scala" tar
-	      ((:url . "https://github.com/ensime/emacs-scala-mode")
+	     [(1 1 0)
+	      ((emacs
+		(24 2)))
+	      "Major mode for editing Scala" tar
+	      ((:url . "https://github.com/hvesalai/emacs-scala-mode")
 	       (:keywords "languages")
-	       (:commit . "3989897168bc0e687e43b8f9a3cf4328f6c79f41"))])
+	       (:commit . "889f6067fc96d8f7869e9584dbfef94b40c7c89e"))])
  (scroll-on-drag .
 		 [(0 1)
 		  ((emacs
@@ -2438,14 +2465,14 @@
 			("Joost Kremers" . "joostkremers@fastmail.fm"))
 		       (:commit . "e04d3521b6dc2435de4c4a4b9cac5feb194f0d5b"))])
  (web-mode .
-	   [(17 3 19)
+	   [(17 3 20)
 	    ((emacs
 	      (23 1)))
 	    "major mode for editing web templates" tar
 	    ((:url . "https://web-mode.org")
 	     (:keywords "languages")
 	     (:maintainer "François-Xavier Bois" . "fxbois@gmail.com")
-	     (:commit . "10f1269ab1007ab3d5fe018c83bb82c979617bfd"))])
+	     (:commit . "0c83581d1e93d1d802c730a1d5e90cd1c740e1b2"))])
  (webpaste .
 	   [(3 2 2)
 	    ((emacs
@@ -2494,18 +2521,18 @@
 	      ("Akib Azmain Turja" . "akib@disroot.org"))
 	     (:commit . "5203d9379afaf6703746823a580c804e1dd98e08"))])
  (with-editor .
-	      [(3 3 4)
+	      [(3 4 1)
 	       ((emacs
-		 (25 1))
+		 (26 1))
 		(compat
-		 (29 1 4 5)))
+		 (30 0 0 0)))
 	       "Use the Emacsclient as $EDITOR" tar
 	       ((:url . "https://github.com/magit/with-editor")
 		(:keywords "processes" "terminals")
 		(:maintainer "Jonas Bernoulli" . "emacs.with-editor@jonas.bernoulli.dev")
 		(:authors
 		 ("Jonas Bernoulli" . "emacs.with-editor@jonas.bernoulli.dev"))
-		(:commit . "322ee26d3a7d3d67840293041837b7e70cffa8d1"))])
+		(:commit . "78c303a0181f2132e2254f965176b549044d74f2"))])
  (with-simulated-input .
 		       [(3 0)
 			((emacs
@@ -2545,14 +2572,14 @@
 	     ((:url . "https://github.com/lewang/ws-butler")
 	      (:commit . "323b651dd70ee40a25accc940b8f80c3a3185205"))])
  (xah-fly-keys .
-	       [(25 9 20240703220947)
+	       [(25 9 20240725161125)
 		((emacs
 		  (27)))
 		"ergonomic modal keybinding minor mode." tar
 		((:url . "http://xahlee.info/emacs/misc/xah-fly-keys.html")
 		 (:keywords "convenience" "vi" "vim" "ergoemacs" "keybinding")
 		 (:maintainer "Xah Lee" . "xah@xahlee.org")
-		 (:commit . "7c8789acf9a0256df3f42b9748e739254e806830"))])
+		 (:commit . "5556a1d5dfaa19ecd0fd0fce735966f8cc118865"))])
  (xkcd .
        [(1 1)
 	((json

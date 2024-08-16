@@ -13,6 +13,21 @@
 (require 'init-rime)
 ;; (require 'init-ivy)
 
+
+(use-package gptel
+    :ensure t
+    :config
+    (setq gptel-model "moonshot-v1-8k")
+    (setq gptel-use-curl nil)          ;; 我觉得这一句是关键，供你参考
+    (setq gptel-default-mode 'org-mode)
+    (setq gptel-backend
+          (gptel-make-openai "Moonshot"
+            :key 'gptel-api-key
+            :models '("moonshot-v1-8k"
+                      "moonshot-v1-32k"
+                      "moonshot-v1-128k")
+            :host "api.moonshot.cn")))
+
 (set-frame-parameter nil 'alpha-background 80)
 
 (add-to-list 'default-frame-alist '(alpha-background . 80))
@@ -38,12 +53,12 @@
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(custom-safe-themes
-   '("8b148cf8154d34917dfc794b5d0fe65f21e9155977a36a5985f89c09a9669aa0" "dccf4a8f1aaf5f24d2ab63af1aa75fd9d535c83377f8e26380162e888be0c6a9" "7e377879cbd60c66b88e51fad480b3ab18d60847f31c435f15f5df18bdb18184" "b754d3a03c34cfba9ad7991380d26984ebd0761925773530e24d8dd8b6894738" "9f297216c88ca3f47e5f10f8bd884ab24ac5bc9d884f0f23589b0a46a608fe14" "4594d6b9753691142f02e67b8eb0fda7d12f6cc9f1299a49b819312d6addad1d" "88f7ee5594021c60a4a6a1c275614103de8c1435d6d08cc58882f920e0cec65e" "aec7b55f2a13307a55517fdf08438863d694550565dee23181d2ebd973ebd6b8" "6f96a9ece5fdd0d3e04daea6aa63e13be26b48717820aa7b5889c602764cf23a" "014cb63097fc7dbda3edf53eb09802237961cbb4c9e9abd705f23b86511b0a69" "7964b513f8a2bb14803e717e0ac0123f100fb92160dcf4a467f530868ebaae3e" "d6b934330450d9de1112cbb7617eaf929244d192c4ffb1b9e6b63ad574784aad" default))
+   '("e4a702e262c3e3501dfe25091621fe12cd63c7845221687e36a79e17cf3a67e0" "77fff78cc13a2ff41ad0a8ba2f09e8efd3c7e16be20725606c095f9a19c24d3d" "81f53ee9ddd3f8559f94c127c9327d578e264c574cda7c6d9daddaec226f87bb" "4b6cc3b60871e2f4f9a026a5c86df27905fb1b0e96277ff18a76a39ca53b82e1" "2078837f21ac3b0cc84167306fa1058e3199bbd12b6d5b56e3777a4125ff6851" "9013233028d9798f901e5e8efb31841c24c12444d3b6e92580080505d56fd392" "8b148cf8154d34917dfc794b5d0fe65f21e9155977a36a5985f89c09a9669aa0" "dccf4a8f1aaf5f24d2ab63af1aa75fd9d535c83377f8e26380162e888be0c6a9" "7e377879cbd60c66b88e51fad480b3ab18d60847f31c435f15f5df18bdb18184" "b754d3a03c34cfba9ad7991380d26984ebd0761925773530e24d8dd8b6894738" "9f297216c88ca3f47e5f10f8bd884ab24ac5bc9d884f0f23589b0a46a608fe14" "4594d6b9753691142f02e67b8eb0fda7d12f6cc9f1299a49b819312d6addad1d" "88f7ee5594021c60a4a6a1c275614103de8c1435d6d08cc58882f920e0cec65e" "aec7b55f2a13307a55517fdf08438863d694550565dee23181d2ebd973ebd6b8" "6f96a9ece5fdd0d3e04daea6aa63e13be26b48717820aa7b5889c602764cf23a" "014cb63097fc7dbda3edf53eb09802237961cbb4c9e9abd705f23b86511b0a69" "7964b513f8a2bb14803e717e0ac0123f100fb92160dcf4a467f530868ebaae3e" "d6b934330450d9de1112cbb7617eaf929244d192c4ffb1b9e6b63ad574784aad" default))
  '(display-time-mode t)
  '(global-display-line-numbers-mode t)
  '(org-agenda-files nil)
  '(package-selected-packages
-   '(winum rime docker lua-mode counsel swiper ivy lsp-ui lsp-mode vterm cmake-mode rainbow-delimiters magit-svn google-c-style dashboard which-key flycheck company qml-mode fancy-compilation all-the-icons-gnus all-the-icons-nerd-fonts all-the-icons-dired melpa-upstream-visit magit doom-modeline doom-themes))
+   '(gptel winum rime docker lua-mode counsel swiper ivy lsp-ui lsp-mode vterm cmake-mode rainbow-delimiters magit-svn google-c-style dashboard which-key flycheck company qml-mode fancy-compilation all-the-icons-gnus all-the-icons-nerd-fonts all-the-icons-dired melpa-upstream-visit magit doom-modeline doom-themes))
  '(vterm-tramp-shells '(("docker" "/bin/bash"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

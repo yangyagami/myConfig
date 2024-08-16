@@ -1,17 +1,17 @@
 __build_info:
   rime_version: 1.11.1
   timestamps:
-    default: 1654509030
-    default.custom: 1719929376
+    default: 1720897484
+    default.custom: 1721783933
     double_pinyin_sogou.custom: 0
-    double_pinyin_sogou.schema: 1717505494
-    key_bindings: 1654509030
+    double_pinyin_sogou.schema: 1723035711
+    key_bindings: 1720897484
     key_bindings.custom: 0
-    punctuation: 1654509030
+    punctuation: 1720897484
     punctuation.custom: 0
-    rime_ice_suggestion: 1717505494
+    rime_ice_suggestion: 1723035711
     rime_ice_suggestion.custom: 0
-    symbols_caps_v: 1717505494
+    symbols_caps_v: 1723035711
     symbols_caps_v.custom: 0
 cn_en:
   comment_format:
@@ -769,6 +769,7 @@ translator:
     - "xform/^/［/"
     - "xform/$/］/"
   dictionary: rime_ice
+  enable_word_completion: true
   initial_quality: 1.2
   preedit_format:
     - "xform/([aoe])(\\w)/0$2/"
