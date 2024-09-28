@@ -1,15 +1,15 @@
 __build_info:
-  rime_version: 1.11.1
+  rime_version: 1.11.2
   timestamps:
     default: 1720897484
-    default.custom: 1721783933
+    default.custom: 1719929376
     key_bindings: 1720897484
     key_bindings.custom: 0
     melt_eng.custom: 0
-    melt_eng.schema: 1723035711
+    melt_eng.schema: 1724969183
     punctuation: 1720897484
     punctuation.custom: 0
-    rime_ice_suggestion: 1723035711
+    rime_ice_suggestion: 1724969183
     rime_ice_suggestion.custom: 0
 algebra_abc:
   - "derive/1([4-7|9])/$1teen/"

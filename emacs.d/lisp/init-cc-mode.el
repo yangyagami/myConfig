@@ -10,12 +10,9 @@
 	    (display-fill-column-indicator-mode 1)))
 
 (add-hook 'c++-mode-hook 'google-set-c-style)
-(add-hook 'c++-mode-hook 'company-mode)
 (add-hook 'c++-mode-hook 'flycheck-mode)
 (add-hook 'c++-mode-hook 'rainbow-delimiters-mode)
 
-(require 'lsp)
-(add-hook 'c++-mode-hook 'lsp-mode)
-(setq lsp-clients-clangd-args '("--header-insertion=never"))
+;; (setq lsp-clients-clangd-args '("--header-insertion=never"))
 
 (provide 'init-cc-mode)
