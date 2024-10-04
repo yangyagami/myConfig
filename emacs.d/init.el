@@ -4,6 +4,13 @@
 ;; 添加.emacs.d/lisp
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
 
+;; lspbridge
+(add-to-list 'load-path "~/.emacs.d/3rd/lspbridge")
+(require 'yasnippet)
+(yas-global-mode 1)
+(require 'lsp-bridge)
+(global-lsp-bridge-mode)
+
 (require 'init-elpa)
 (require 'init-theme)
 (require 'init-basic)
@@ -18,13 +25,6 @@
 
 (require 'gdscript-mode)
 (add-hook 'gdscript-mode-hook #'lsp-mode)
-
-;; lspbridge
-(add-to-list 'load-path "~/.emacs.d/3rd/lspbridge")
-(require 'yasnippet)
-(yas-global-mode 1)
-(require 'lsp-bridge)
-(global-lsp-bridge-mode)
 
 ;; dired
 (add-hook 'dired-mode-hook (lambda () (dired-omit-mode)))
@@ -53,11 +53,12 @@
             (setq-default qml-indent-offset 4))) ; 设置缩进为4个空格，你可以根据需要调整数字
 
 ;; 设置垃圾回收大小为64mb
-(setq gc-cons-threshold (* 64 1024 1024)
+(setq gc-cons-threshold (* 32 1024 1024)
       gc-cons-percentage 0.5
       read-process-output-max (* 8 1024 1024)
-      treemacs-space-between-root-nodes nil
-      lsp-idle-delay 0.1)  ;; clangd is fast
+      treemacs-space-between-root-nodes nil)
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+
+(load-file custom-file)
