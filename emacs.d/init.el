@@ -4,13 +4,6 @@
 ;; 添加.emacs.d/lisp
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
 
-;; lspbridge
-(add-to-list 'load-path "~/.emacs.d/3rd/lspbridge")
-(require 'yasnippet)
-(yas-global-mode 1)
-(require 'lsp-bridge)
-(global-lsp-bridge-mode)
-
 (require 'init-elpa)
 (require 'init-theme)
 (require 'init-basic)
@@ -62,3 +55,6 @@
 (put 'downcase-region 'disabled nil)
 
 (load-file custom-file)
+
+;; 设置英文字体
+(set-face-attribute 'default nil :family "Unifont" :height 240)
