@@ -11,3 +11,4 @@ emacs.d/tutorial/
 emacs.d/init.el~
 emacs.d/.emacs.custom.el
 emacs.d/rime
+/emacs.d/ido.last

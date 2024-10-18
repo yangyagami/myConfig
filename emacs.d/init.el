@@ -57,4 +57,4 @@
 (load-file custom-file)
 
 ;; 设置英文字体
-(set-face-attribute 'default nil :family "Unifont" :height 240)
+(set-face-attribute 'default nil :family "Source Code Pro" :height 180)
