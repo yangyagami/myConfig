@@ -15,6 +15,7 @@
 	    ;; (local-set-key (kbd "C-c d p") 'lsp-bridge-popup-documentation-scroll-up)
 	    ;; (local-set-key (kbd "C-c SPC") 'lsp-bridge-popup-complete-menu)
 	    (lsp)
+	    (lsp-inlay-hints-mode)
 	    (google-set-c-style)
 	    (flycheck-mode)
 	    (rainbow-delimiters-mode)
