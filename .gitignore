@@ -13,3 +13,4 @@ emacs.d/.emacs.custom.el
 emacs.d/rime
 rime
 /emacs.d/ido.last
+/emacs.d/.alarm-clock.cache
