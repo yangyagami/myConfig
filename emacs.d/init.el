@@ -14,6 +14,7 @@
 (require 'init-dashboard)
 (require 'init-tab)
 (require 'init-rime)
+(require 'init-dired)
 ;; (require 'init-ivy)
 
 (require 'gdscript-mode)

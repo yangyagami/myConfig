@@ -5,7 +5,6 @@
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
         doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  (load-theme 'doom-bluloco-light t)
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)
@@ -18,9 +17,9 @@
   (doom-themes-org-config))
 
 ;; doom modeline
-(use-package doom-modeline
-  :ensure t
-  :init (doom-modeline-mode 1))
+;; (use-package doom-modeline
+;;   :ensure t
+;;   :init (doom-modeline-mode 1))
 
 ;; icons
 (use-package all-the-icons
