@@ -15,7 +15,7 @@
 (require 'init-tab)
 (require 'init-rime)
 (require 'init-dired)
-;; (require 'init-ivy)
+(require 'init-ivy)
 
 (require 'gdscript-mode)
 (add-hook 'gdscript-mode-hook #'lsp-mode)
