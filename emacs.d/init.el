@@ -14,7 +14,8 @@
 (require 'init-dashboard)
 (require 'init-tab)
 (require 'init-rime)
-;; (require 'init-ivy)
+(require 'init-dired)
+(require 'init-ivy)
 
 (require 'gdscript-mode)
 (add-hook 'gdscript-mode-hook #'lsp-mode)
@@ -55,6 +56,3 @@
 (put 'downcase-region 'disabled nil)
 
 (load-file custom-file)
-
-;; 设置英文字体
-(set-face-attribute 'default nil :family "Source Code Pro" :height 180)

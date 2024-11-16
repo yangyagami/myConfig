@@ -11,4 +11,6 @@ emacs.d/tutorial/
 emacs.d/init.el~
 emacs.d/.emacs.custom.el
 emacs.d/rime
+rime
 /emacs.d/ido.last
+/emacs.d/.alarm-clock.cache
