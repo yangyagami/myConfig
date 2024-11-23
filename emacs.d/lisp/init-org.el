@@ -8,9 +8,9 @@
 
 (defun my-org-insert-entry ()
   (interactive)
-  (insert "#+TITLE: TITLE")
-  (insert "#+DATE: DATE")
-  (insert "#+AUTHOR: yangsiyu"))
+  (insert "#+TITLE: TITLE\n")
+  (insert "#+DATE: DATE\n")
+  (insert "#+AUTHOR: yangsiyu\n"))
 
 
 (provide 'init-org)
