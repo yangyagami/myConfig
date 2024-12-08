@@ -1,4 +1,5 @@
 (require 'company)
+(require 'lsp-mode)
 
 ;; C语言下的设置
 (defun c-lineup-arglist-tabs-only (ignored)
@@ -10,8 +11,6 @@
     (* (max steps 1)
        c-basic-offset)))
 
-
-(add-to-list 'company-backends 'company-etags)
 
 (add-hook 'c-mode-common-hook
           (lambda ()
@@ -30,7 +29,15 @@
 	    (setq indent-tabs-mode t)
 	    (setq show-trailing-whitespace t)
 	    (c-set-style "linux-tabs-only")
-	    (company-mode)
+	    (local-set-key (kbd "C-c d o") 'lsp-ui-doc-toggle)
+	    (local-set-key (kbd "C-c g i") 'lsp-goto-implementation)
+	    (local-set-key (kbd "C-c g d") 'lsp-goto-type-definition)
+	    (lsp)
+	    (lsp-inlay-hints-mode)
+	    (flycheck-mode)
+	    (rainbow-delimiters-mode)
             (display-fill-column-indicator-mode 1)))
+
+(setq lsp-clients-clangd-args '("--header-insertion=never"))
 
 (provide 'init-c-mode)

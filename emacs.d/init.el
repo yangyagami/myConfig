@@ -10,6 +10,7 @@
 (require 'init-org)
 (require 'init-c-mode)
 (require 'init-cc-mode)
+(require 'init-lua-mode)
 (require 'init-keybinds)
 (require 'init-dashboard)
 (require 'init-tab)
