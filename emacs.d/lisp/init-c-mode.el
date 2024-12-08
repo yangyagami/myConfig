@@ -1,3 +1,5 @@
+(require 'company)
+
 ;; C语言下的设置
 (defun c-lineup-arglist-tabs-only (ignored)
   "Line up argument lists by tabs, not spaces"
@@ -7,6 +9,9 @@
          (steps (floor offset c-basic-offset)))
     (* (max steps 1)
        c-basic-offset)))
+
+
+(add-to-list 'company-backends 'company-etags)
 
 (add-hook 'c-mode-common-hook
           (lambda ()
@@ -25,6 +30,7 @@
 	    (setq indent-tabs-mode t)
 	    (setq show-trailing-whitespace t)
 	    (c-set-style "linux-tabs-only")
+	    (company-mode)
             (display-fill-column-indicator-mode 1)))
 
 (provide 'init-c-mode)
