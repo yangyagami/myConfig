@@ -24,19 +24,19 @@
 ;; dired
 (add-hook 'dired-mode-hook (lambda () (dired-omit-mode)))
 
-(use-package gptel
-    :ensure t
-    :config
-    (setq gptel-model "moonshot-v1-8k")
-    (setq gptel-use-curl nil)          ;; 我觉得这一句是关键，供你参考
-    (setq gptel-default-mode 'org-mode)
-    (setq gptel-backend
-          (gptel-make-openai "Moonshot"
-            :key 'gptel-api-key
-            :models '("moonshot-v1-8k"
-                      "moonshot-v1-32k"
-                      "moonshot-v1-128k")
-            :host "api.moonshot.cn")))
+;; (use-package gptel
+;;     :ensure t
+;;     :config
+;;     (setq gptel-model "moonshot-v1-8k")
+;;     (setq gptel-use-curl nil)          ;; 我觉得这一句是关键，供你参考
+;;     (setq gptel-default-mode 'org-mode)
+;;     (setq gptel-backend
+;;           (gptel-make-openai "Moonshot"
+;;             :key 'gptel-api-key
+;;             :models '("moonshot-v1-8k"
+;;                       "moonshot-v1-32k"
+;;                       "moonshot-v1-128k")
+;;             :host "api.moonshot.cn")))
 
 (set-frame-parameter nil 'alpha-background 100)
 
