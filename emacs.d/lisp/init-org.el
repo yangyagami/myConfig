@@ -3,7 +3,7 @@
 
 (add-hook 'org-mode-hook (lambda ()
 			   (setq line-spacing 0.45)
-			   (visual-line-mode)
+			   (toggle-truncate-lines)
 			   (auto-fill-mode 0)
 			   (org-indent-mode)))
 
