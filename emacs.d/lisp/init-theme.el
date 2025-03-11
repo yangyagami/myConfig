@@ -22,9 +22,9 @@
 ;;   :init (doom-modeline-mode 1))
 
 ;; icons
-(use-package all-the-icons
-  :if (display-graphic-p))
-(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+;; (use-package all-the-icons
+;;   :if (display-graphic-p))
+;; (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
 ;; 设置modeline高度
 (setq doom-modeline-height 35)

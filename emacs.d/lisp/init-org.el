@@ -4,11 +4,12 @@
 (add-hook 'org-mode-hook (lambda ()
 			   (setq line-spacing 0.45)
 			   (visual-line-mode)
-			   (auto-fill-mode 0)))
+			   (auto-fill-mode 0)
+			   (org-indent-mode)))
 
 (defun my-org-insert-entry ()
   (interactive)
-  (insert "#+TITLE: TITLE\n")
+  (insert (format "#+TITLE: %s\n" buffer-file-name))
   (insert "#+DATE: DATE\n")
   (insert "#+AUTHOR: yangsiyu\n"))
 

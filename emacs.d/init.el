@@ -18,8 +18,8 @@
 (require 'init-dired)
 (require 'init-ivy)
 
-(require 'gdscript-mode)
-(add-hook 'gdscript-mode-hook #'lsp-mode)
+;; (require 'gdscript-mode)
+;; (add-hook 'gdscript-mode-hook #'lsp-mode)
 
 ;; dired
 (add-hook 'dired-mode-hook (lambda () (dired-omit-mode)))
