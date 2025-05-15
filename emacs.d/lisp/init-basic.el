@@ -6,7 +6,7 @@
 (ido-everywhere)
 
 ;; 高亮光标所在行
-(global-hl-line-mode 1)
+;; (global-hl-line-mode 1)
 
 ;; whichkey
 (require 'which-key)

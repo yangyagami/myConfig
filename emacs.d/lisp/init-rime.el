@@ -7,7 +7,6 @@
 	rime-predicate-after-ascii-char-p
 	rime-predicate-space-after-cc-p))
 
-
 (global-set-key (kbd "C-\\")
 		(lambda ()
 		  (interactive)
