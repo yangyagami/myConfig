@@ -11,6 +11,7 @@
 (require 'init-c-mode)
 (require 'init-cc-mode)
 (require 'init-lua-mode)
+(require 'init-qml-mode)
 (require 'init-keybinds)
 (require 'init-dashboard)
 (require 'init-tab)
@@ -39,14 +40,34 @@
 ;;                       "moonshot-v1-128k")
 ;;             :host "api.moonshot.cn")))
 
-(set-frame-parameter nil 'alpha-background 100)
+;; tramp
+(setq remote-file-name-inhibit-locks t
+      tramp-use-scp-direct-remote-copying t
+      remote-file-name-inhibit-auto-save-visited t)
 
-(add-to-list 'default-frame-alist '(alpha-background . 100))
+(setq tramp-copy-size-limit (* 1024 1024) ;; 1MB
+      tramp-verbose 2)
+
+(connection-local-set-profile-variables
+ 'remote-direct-async-process
+ '((tramp-direct-async-process . t)))
+
+(connection-local-set-profiles
+ '(:application tramp :protocol "scp")
+ 'remote-direct-async-process)
+
+(setq magit-tramp-pipe-stty-settings 'pty)
 
 ;; qml 设置
 (add-hook 'qml-mode-hook
           (lambda ()
-            (setq-default qml-indent-offset 4))) ; 设置缩进为4个空格，你可以根据需要调整数字
+	    (setq indent-tabs-mode nil)
+	    (setq-default qml-indent-offset 4)
+	    (whitespace-mode 1)))
+
+(set-frame-parameter nil 'alpha-background 100)
+
+(add-to-list 'default-frame-alist '(alpha-background . 100))
 
 ;; 设置垃圾回收大小为64mb
 (setq gc-cons-threshold (* 32 1024 1024)
