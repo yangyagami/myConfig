@@ -1,3 +1,6 @@
+;; compay
+(global-company-mode)
+
 ;; 平滑滚动
 (pixel-scroll-precision-mode 1)
 
