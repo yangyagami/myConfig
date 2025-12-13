@@ -56,7 +56,7 @@
  '(:application tramp :protocol "scp")
  'remote-direct-async-process)
 
-(setq magit-tramp-pipe-stty-settings 'pty)
+;; (setq magit-tramp-pipe-stty-settings 'pty)
 
 ;; qml 设置
 (add-hook 'qml-mode-hook
