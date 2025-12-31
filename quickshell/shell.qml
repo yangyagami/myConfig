@@ -2,8 +2,13 @@ import Quickshell
 import Quickshell.Io
 import Quickshell.Wayland
 import QtQuick
+import QtQuick.Layouts
 
 PanelWindow {
+    id: root
+
+    property int currentWorkspace: 1
+
     color: "#FF7777"
     WlrLayershell.namespace: `raiden`
     WlrLayershell.exclusionMode: ExclusionMode.Ignore
@@ -25,13 +30,18 @@ PanelWindow {
 
         anchors.left: true
         anchors.right: true
-        anchors.top: true
-        implicitHeight: 30
-        color: "white"
+        anchors.bottom: true
+        implicitHeight: 40
+        color: "#DD000000"
 
         Text {
             id: clock
-            anchors.centerIn: parent
+            anchors.right: parent.right
+            anchors.rightMargin: 20
+            anchors.verticalCenter: parent.verticalCenter
+            color: "white"
+            verticalAlignment: Text.AlignVCenter
+            font.pointSize: 10
 
             Process {
                 // give the process object an id so we can talk
@@ -62,5 +72,54 @@ PanelWindow {
                 onTriggered: dateProc.running = true
             }  // Timer
         }  // Text($clock)
+
+        RowLayout {
+            id: workspaceRowLayout
+
+            anchors.right: clock.left
+            anchors.rightMargin: 20
+            anchors.verticalCenter: parent.verticalCenter
+
+            Repeater {
+                model: 4
+
+                Rectangle {
+                    Layout.preferredWidth: 12
+                    Layout.preferredHeight: 12
+                    radius: width / 2
+                    color: (index + 1) == root.currentWorkspace ?
+                        "lightblue" : "red"
+                }  // Rectangle
+            }  // Repeater
+        }  // RowLayout($workspaceRowLayout)
     }  // PanelWindow($bar)
-}  // PanelWindow
+
+    Process {
+        id: niriIpc
+
+        command: ["niri", "msg", "--json", "event-stream"]
+        running: true
+
+        stdout: StdioCollector {
+            waitForEnd: false
+            onTextChanged: {
+                let current_workspace = 1
+                for (const line of this.text.split("\n")) {
+                    if (line.trim() == "") {
+                        continue
+                    }
+
+                    console.debug("line:", line)
+                    const json = JSON.parse(line)
+
+                    if ("WorkspaceActivated" in json) {
+                        current_workspace = json.WorkspaceActivated.id
+                    }
+                }
+
+                root.currentWorkspace = current_workspace
+                console.debug("current_workspace:", current_workspace)
+            }
+        }
+    }  // Process
+}  // PanelWindow($root)
