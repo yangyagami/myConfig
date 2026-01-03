@@ -3,6 +3,7 @@
 
 ;; 添加.emacs.d/lisp
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp/3rdparty/qml-ts-mode"))
 
 (require 'init-elpa)
 (require 'init-theme)
@@ -57,13 +58,6 @@
  'remote-direct-async-process)
 
 ;; (setq magit-tramp-pipe-stty-settings 'pty)
-
-;; qml 设置
-(add-hook 'qml-mode-hook
-          (lambda ()
-	    (setq indent-tabs-mode nil)
-	    (setq-default qml-indent-offset 4)
-	    (whitespace-mode 1)))
 
 (set-frame-parameter nil 'alpha-background 100)
 
