@@ -33,3 +33,6 @@
 (global-set-key (kbd "C-x C-k") 'my-close-buffer-or-window)
 
 (provide 'init-keybinds)
+
+;; duplicate line
+(global-set-key (kbd "C-,") 'duplicate-line)
