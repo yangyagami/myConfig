@@ -35,4 +35,11 @@
 (provide 'init-keybinds)
 
 ;; duplicate line
-(global-set-key (kbd "C-,") 'duplicate-line)
+(defun duplicate-line-and-preserve-column ()
+  "Duplicate current line and preserve column position."
+  (interactive)
+  (let ((col (current-column)))  ; 保存当前列位置
+    (duplicate-line)             ; 复制当前行
+    (next-line)
+    (move-to-column col)))       ; 移动到保存的列位置
+(global-set-key (kbd "C-,") 'duplicate-line-and-preserve-column)
