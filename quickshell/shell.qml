@@ -1,19 +1,63 @@
 import QtQuick
 import QtQuick.Controls
+import QtMultimedia
 
 import Quickshell
+import Quickshell.Wayland
 import Quickshell.Hyprland
 import Quickshell.Services.SystemTray
 
-Variants {
-    model: Quickshell.screens
+ShellRoot {
+    Variants {
+        model: Quickshell.screens
 
-    delegate: Component {
+        delegate: Component {
+            PanelWindow {
+                id: surface
+                required property var modelData
+
+                screen: modelData
+
+                anchors {
+                    top: true
+                    left: true
+                    right: true
+                    bottom: true
+                }
+
+                color: "#080808"
+                WlrLayershell.layer: WlrLayer.Background
+                exclusiveZone: 1
+
+                VideoOutput {
+                    id: videoOutput
+                    anchors.fill: parent
+                }  // VideoOutput($videoOutput)
+
+                MediaPlayer {
+                    source: "wallpapers/albedos-paradise.1920x1080.mp4"
+                    audioOutput: AudioOutput {}  // AudioOutput
+                    videoOutput: videoOutput
+                    loops: MediaPlayer.Infinite
+
+                    Component.onCompleted: {
+                        play();
+                    }
+                }  // MediaPlayer
+            } // PanelWindow($surface)
+        } // Component
+    } // Variants
+
+    Variants {
+        model: Quickshell.screens
+
         PanelWindow {
+            id: bar
             required property var modelData
 
             screen: modelData
             visible: Hyprland.focusedMonitor?.name === modelData.name
+            WlrLayershell.layer: WlrLayer.Background
 
             anchors {
                 top: true
@@ -32,6 +76,7 @@ Variants {
 
             Rectangle {
                 anchors.fill: parent
+                implicitHeight: 32
                 color: "#1E1E1E"
                 radius: 4
 
@@ -40,11 +85,14 @@ Variants {
                 } // WorkspacesControl($workspacesControl)
 
                 Item {
+                    clip: true
                     anchors {
                         top: parent.top
                         bottom: parent.bottom
                         left: workspacesControl.right
                         right: date.left
+                        leftMargin: 10
+                        rightMargin: 10
                     }
                     Text {
                         anchors.centerIn: parent
@@ -103,6 +151,6 @@ Variants {
             // function onRawEvent(event) {
             // }
             // } // Connections
-        } // PanelWindow
-    }  // Component
-}  // Variants
+        } // PanelWindow($bar)
+    } // Variants
+} // ShellRoot

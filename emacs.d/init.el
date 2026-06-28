@@ -19,6 +19,7 @@
 (require 'init-rime)
 (require 'init-dired)
 (require 'init-ivy)
+(require 'init-qt)
 (require 'note)
 
 ;; (require 'gdscript-mode)
