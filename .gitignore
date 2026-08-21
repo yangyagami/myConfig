@@ -16,3 +16,9 @@ rime
 /emacs.d/.alarm-clock.cache
 eln-cache
 .wallpaper
+pi/agent/auth.json
+pi/agent/sessions/
+pi/agent/npm/
+pi/agent/bin/
+pi/agent/run-history.jsonl
+pi/figma-remote-mcp-token.json

@@ -1,0 +1,16 @@
+{
+  "lastChangelogVersion": "0.84.2",
+  "defaultProvider": "deepseek",
+  "defaultModel": "deepseek-v4-flash",
+  "defaultThinkingLevel": "high",
+  "theme": "dark",
+  "extensions": [
+    "~/.pi/agent/extensions/deepseek-balance.ts"
+  ],
+  "packages": [
+    "https://github.com/mkaralevich/pi-figma-remote-mcp",
+    "npm:pi-web-access",
+    "git:github.com/4cya/pi-wechat-bridge-bind@v0.1.0",
+    "npm:pi-subagents"
+  ]
+}

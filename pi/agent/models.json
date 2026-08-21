@@ -1,0 +1,32 @@
+{
+    "providers": {
+	"jeniya": {
+	    "baseUrl": "https://quanzil.com/v1",
+	    "api": "openai-completions",
+	    "apiKey": "sk-yevyT6psJbxxCtzWtWlEqmaIMql5jvxjmzhSo1IUyW79pVAf",
+	    "models": [
+		{
+		    "id": "gpt-5.6-sol",
+		    "contextWindow": 1000000,
+		    "reasoning": true
+		}
+	    ]
+	},
+	"deepseek": {
+	    "baseUrl": "https://api.deepseek.com",
+	    "api": "openai-completions",
+	    "apiKey": "sk-051d8b70384f450eb65b373f6b99948e",
+	    "compat": {
+		"thinkingFormat": "deepseek",
+		"requiresReasoningContentOnAssistantMessages": true,
+		"supportsDeveloperRole": false
+	    },
+	    "models": [
+		{ "id": "deepseek-chat" },
+		{ "id": "deepseek-reasoner", "reasoning": true },
+		{ "id": "deepseek-v4-pro[1m]", "reasoning": true },
+		{ "id": "deepseek-v4-flash[1m]", "reasoning": true }
+	    ]
+	}
+    }
+}

@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "sessions": {
+    "019f2182-93e2-7dd1-8f99-856a383bca79": {
+      "sessionId": "019f2182-93e2-7dd1-8f99-856a383bca79",
+      "cwd": "/home/yangsiyu",
+      "sessionFile": "/home/yangsiyu/.pi/agent/sessions/--home-yangsiyu--/2026-07-02T06-27-13-506Z_019f2182-93e2-7dd1-8f99-856a383bca79.jsonl",
+      "updatedAt": "2026-07-02T06:27:13.581Z"
+    },
+    "019f2184-7d40-74bd-b6eb-dbfd97b105ea": {
+      "sessionId": "019f2184-7d40-74bd-b6eb-dbfd97b105ea",
+      "cwd": "/home/yangsiyu/Programming/qt/tianxi",
+      "sessionFile": "/home/yangsiyu/.pi/agent/sessions/--home-yangsiyu-Programming-qt-tianxi--/2026-07-02T06-29-18-784Z_019f2184-7d40-74bd-b6eb-dbfd97b105ea.jsonl",
+      "updatedAt": "2026-07-02T06:29:18.868Z"
+    },
+    "019f21be-2712-7a16-9a26-e5f69bf1c00a": {
+      "sessionId": "019f21be-2712-7a16-9a26-e5f69bf1c00a",
+      "cwd": "/home/yangsiyu/Programming/qt/kt-computer-manager-v11",
+      "sessionFile": "/home/yangsiyu/.pi/agent/sessions/--home-yangsiyu-Programming-qt-kt-computer-manager-v11--/2026-07-02T07-32-17-810Z_019f21be-2712-7a16-9a26-e5f69bf1c00a.jsonl",
+      "updatedAt": "2026-07-02T07:32:17.912Z"
+    }
+  }
+}
