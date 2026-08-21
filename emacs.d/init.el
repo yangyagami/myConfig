@@ -8,6 +8,7 @@
 (require 'init-elpa)
 (require 'init-theme)
 (require 'init-basic)
+(require 'init-clipboard)
 (require 'init-org)
 (require 'init-c-mode)
 (require 'init-cc-mode)

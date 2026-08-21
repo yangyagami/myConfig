@@ -1,3 +1,6 @@
 [submodule "hypr/plugins/split-monitor-workspaces"]
 	path = hypr/plugins/split-monitor-workspaces
 	url = https://github.com/zjeffer/split-monitor-workspaces
+[submodule "emacs.d/lisp/3rdparty/qml-ts-mode"]
+	path = emacs.d/lisp/3rdparty/qml-ts-mode
+	url = https://github.com/xhcoding/qml-ts-mode.git

@@ -6,6 +6,7 @@ import Quickshell
 import Quickshell.Wayland
 import Quickshell.Hyprland
 import Quickshell.Services.SystemTray
+import Quickshell.Services.UPower
 
 ShellRoot {
     Variants {
@@ -35,7 +36,7 @@ ShellRoot {
                 }  // VideoOutput($videoOutput)
 
                 MediaPlayer {
-                    source: "wallpapers/albedos-paradise.1920x1080.mp4"
+                    source: "wallpapers/the-end-of-summer.3840x2160.mp4"
                     audioOutput: AudioOutput {}  // AudioOutput
                     videoOutput: videoOutput
                     loops: MediaPlayer.Infinite
@@ -67,21 +68,24 @@ ShellRoot {
 
             margins {
                 top: 5
-                left: 5
-                right: 5
+                left: 11
+                right: 11
             }
 
             color: "transparent"
-            implicitHeight: 32
+            implicitHeight: 38
 
             Rectangle {
                 anchors.fill: parent
                 implicitHeight: 32
                 color: "#1E1E1E"
-                radius: 4
+                radius: 8
 
                 WorkspacesControl {
                     id: workspacesControl
+                    anchors {
+                        leftMargin: 6
+                    }
                 } // WorkspacesControl($workspacesControl)
 
                 Item {
@@ -114,7 +118,71 @@ ShellRoot {
                     precision: SystemClock.Seconds
                 } // SystemClock
 
+                Item {
+                    id: powerItem
+
+                    anchors {
+                        rightMargin: -20
+                        right: tray.left
+                        verticalCenter: parent.verticalCenter
+                    }
+                    implicitWidth: childrenRect.width
+                    implicitHeight: childrenRect.height
+
+                    Text {
+                        text: `${UPower.displayDevice.percentage * 100}%`
+                        color: "white"
+                        anchors {
+                            right: batteryLeft.left
+                            rightMargin: 4
+                            verticalCenter: batteryLeft.verticalCenter
+                        }
+                        font {
+                            pixelSize: 10
+                            weight: Font.Bold
+                        }
+                    } // Text
+
+                    Rectangle {
+                        id: batteryLeft
+                        width: 30
+                        height: 18
+                        radius: 4
+                        border {
+                            width: 2
+                            color: "white"
+                        }
+                        color: "transparent"
+
+                        Rectangle {
+                            width: UPower.displayDevice.percentage *
+                                parent.width - anchors.margins * 2
+                            anchors {
+                                top: parent.top
+                                bottom: parent.bottom
+                                left: parent.left
+                                margins: 4
+                            }
+                            color: Qt.rgba(0.2, 1.0, 0.2, 1.0)
+                        }  // Rectangle
+                    }  // Rectangle($batteryLeft)
+
+                    Rectangle {
+                        id: batteryRight
+                        width: 3
+                        height: 7
+                        radius: 2
+                        color: "white"
+                        anchors {
+                            leftMargin: -1
+                            left: batteryLeft.right
+                            verticalCenter: batteryLeft.verticalCenter
+                        }
+                    }  // Rectangle($batteryRight)
+                }  // Item($powerItem)
+
                 ListView {
+                    id: tray
                     property int iconSize: 24
                     anchors {
                         right: parent.right
@@ -143,7 +211,7 @@ ShellRoot {
                             source: parent.modelData.icon
                         } // Image
                     } // Item
-                } // ListView
+                }  // ListView($tray)
             } // Rectangle
 
             // Connections {

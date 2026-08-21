@@ -14,6 +14,12 @@ local smw = require("plugins.split-monitor-workspaces")
 -- Adjust monitor names based on your hardware:
 --   `hyprctl monitors` to list available outputs
 hl.monitor({
+    output   = "eDP-1",    -- 主显示器 (标准方向)
+    mode     = "preferred",
+    position = "0x0",
+    scale    = 1,
+})
+hl.monitor({
     output   = "HDMI-A-2",    -- 主显示器 (标准方向)
     mode     = "preferred",
     position = "0x0",
@@ -24,7 +30,7 @@ hl.monitor({
     mode     = "preferred",
     position = "1920x0",       -- HDMI-A-2 右侧
     scale    = 1,
-    transform = 3,              -- 3 = 270° 顺时针旋转
+    -- transform = 3,              -- 3 = 270° 顺时针旋转
 })
 hl.monitor({
     output   = "WAYLAND-1",   -- 虚拟显示器
@@ -219,6 +225,8 @@ hl.bind(M .. " + Return", hl.dsp.exec_cmd("kitty"))
 -- Using wofi as dmenu replacement on Wayland.
 -- If you prefer fuzzel/rofi, replace below.
 hl.bind(M .. " + P", hl.dsp.exec_cmd("rofi -show run"))
+
+hl.bind(M .. " + SHIFT + P", hl.dsp.exec_cmd('grim -g "$(slurp -d)" - | wl-copy'))
 
 -- dwm: Super + E → emacsclient -c   (emacscmd)
 hl.bind(M .. " + E", hl.dsp.exec_cmd("emacsclient -c"))
